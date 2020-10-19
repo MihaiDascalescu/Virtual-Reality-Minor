@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 29348974}
   - component: {fileID: 29348973}
   - component: {fileID: 29348977}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2428,6 +2428,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   sightRange: 5
   attackRange: 4
+  demonType: 0
 --- !u!65 &268258036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4033,6 +4034,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   sightRange: 5
   attackRange: 4
+  demonType: 0
 --- !u!65 &458165322
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4350,7 +4352,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511347749}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8cdf43bbecd585449944b8c5904cda6, type: 3}
   m_Name: 
@@ -4372,6 +4374,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   sightRange: 4
   attackRange: 1.5
+  demonType: 1
 --- !u!65 &511347753
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4383,8 +4386,36 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.15999052, y: 0.17422141, z: 0.15952598}
-  m_Center: {x: 0.011620456, y: 0.07969934, z: 0.013201357}
+  m_Size: {x: 0.15999052, y: 0.16410524, z: 0.15952598}
+  m_Center: {x: 0.0116204545, y: 0.08475742, z: 0.013201356}
+--- !u!114 &511347755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511347749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666e8ae5f7dfee14191c2d2b5968f895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 511347751}
+  player: {fileID: 179222533}
+  health: 10
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  animator: {fileID: 511347750}
+  projectile: {fileID: 0}
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 3
+  timeBetweenAttacks: 1
+  sightRange: 4
+  attackRange: 1.5
 --- !u!1 &512817566
 GameObject:
   m_ObjectHideFlags: 0
@@ -6024,6 +6055,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   sightRange: 5
   attackRange: 4
+  demonType: 0
 --- !u!65 &628167716
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12695,6 +12727,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   sightRange: 5
   attackRange: 4
+  demonType: 0
 --- !u!65 &821364132
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23218,7 +23251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362034888}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8cdf43bbecd585449944b8c5904cda6, type: 3}
   m_Name: 
@@ -23240,6 +23273,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   sightRange: 4
   attackRange: 1.5
+  demonType: 0
 --- !u!195 &1362034890
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -23292,8 +23326,36 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.15999052, y: 0.17422141, z: 0.15952598}
-  m_Center: {x: 0.011620456, y: 0.07969934, z: 0.013201357}
+  m_Size: {x: 0.15999052, y: 0.16302085, z: 0.15952598}
+  m_Center: {x: 0.0116204545, y: 0.08529961, z: 0.013201356}
+--- !u!114 &1362034894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362034888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666e8ae5f7dfee14191c2d2b5968f895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 1362034890}
+  player: {fileID: 179222533}
+  health: 10
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  animator: {fileID: 1362034891}
+  projectile: {fileID: 0}
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 3
+  timeBetweenAttacks: 1
+  sightRange: 4
+  attackRange: 1.5
 --- !u!1 &1367107020
 GameObject:
   m_ObjectHideFlags: 0
@@ -23668,7 +23730,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 2557ef0dd3650734992f82d5f7212286,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.008
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2557ef0dd3650734992f82d5f7212286,
         type: 3}
@@ -25598,7 +25660,7 @@ GameObject:
   - component: {fileID: 1794178610}
   m_Layer: 11
   m_Name: Knob3 (12)
-  m_TagString: Untagged
+  m_TagString: FinalHandle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26653,7 +26715,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 2557ef0dd3650734992f82d5f7212286,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.008
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2557ef0dd3650734992f82d5f7212286,
         type: 3}
@@ -27120,7 +27182,7 @@ GameObject:
   - component: {fileID: 2005925160}
   m_Layer: 11
   m_Name: Knob3 (11)
-  m_TagString: Untagged
+  m_TagString: FinalHandle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
