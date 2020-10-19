@@ -1,12 +1,12 @@
-﻿
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR.Management;
 
 
-public class EnemySimpleAI : MonoBehaviour
+public class EnemyAIStateMachine : MonoBehaviour
 {
     public NavMeshAgent agent;
 
@@ -30,13 +30,7 @@ public class EnemySimpleAI : MonoBehaviour
     public float sightRange, attackRange;
     private bool _isPlayerInSightRange, _isPlayerInAttackRange;
 
-    public enum DemonType
-    {
-        Patroler,
-        Guard
-    }
-
-    public DemonType demonType;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -57,12 +51,11 @@ public class EnemySimpleAI : MonoBehaviour
                 
                 if (!_isPlayerInAttackRange && !_isPlayerInSightRange)
                 {
-                                   
+                
                     animator.SetBool("isLookingForEnemies", true);
                     animator.SetBool("isInAttackRange", false);
                     
                     Patrol();
-                    
                 }
 
                 if (!_isPlayerInAttackRange && _isPlayerInSightRange)
@@ -109,6 +102,11 @@ public class EnemySimpleAI : MonoBehaviour
         {
             _isWalkPointSet = false;
         }
+    }
+
+    void Guard()
+    {
+        
     }
 
     private void SearchWalkPoint()
@@ -189,4 +187,3 @@ public class EnemySimpleAI : MonoBehaviour
 
     
 }
-

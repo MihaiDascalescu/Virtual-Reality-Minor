@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
@@ -29,6 +30,7 @@ public class Climber : MonoBehaviour
         {
             _continousMovement.enabled = true;
         }
+        
     }
 
     void Climb()
@@ -37,5 +39,13 @@ public class Climber : MonoBehaviour
 
         _characterController.Move(transform.rotation * -velocity * Time.fixedDeltaTime);
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("FinalHandle"))
+        {
+            _characterController.SimpleMove(Vector3.up);
+        }
         
+    }
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Mihai\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Mihai\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_Virtual-Reality-Minor.-2062128423.00" t="ExcludeRecursive" />
+    <e p="F:\Minor Skilled\Prototypes\TestVR4URPRepo\Virtual-Reality-Minor" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="AttackPlayer.cs" t="Include" />
+        <e p="Bullet.cs" t="Include" />
+        <e p="Climber.cs" t="Include" />
+        <e p="ClimbInteractable.cs" t="Include" />
+        <e p="ContinousMovement.cs" t="Include" />
+        <e p="EnemyAIStateMachine.cs" t="Include" />
+        <e p="EnemySimpleAI.cs" t="Include" />
+        <e p="FollowToTheSide.cs" t="Include" />
+        <e p="Gun.cs" t="Include" />
+        <e p="GunSystem.cs" t="Include" />
+        <e p="HandPresence.cs" t="Include" />
+        <e p="LocomotionController.cs" t="Include" />
+        <e p="NavMeshComponents" t="Include">
+          <e p="Editor" t="Include">
+            <e p="NavMeshAssetManager.cs" t="Include" />
+            <e p="NavMeshComponentsEditor.asmdef" t="Include" />
+            <e p="NavMeshComponentsGUIUtility.cs" t="Include" />
+            <e p="NavMeshLinkEditor.cs" t="Include" />
+            <e p="NavMeshModifierEditor.cs" t="Include" />
+            <e p="NavMeshModifierVolumeEditor.cs" t="Include" />
+            <e p="NavMeshSurfaceEditor.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="NavMeshComponents.asmdef" t="Include" />
+            <e p="NavMeshLink.cs" t="Include" />
+            <e p="NavMeshModifier.cs" t="Include" />
+            <e p="NavMeshModifierVolume.cs" t="Include" />
+            <e p="NavMeshSurface.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Oculus" t="Include">
+          <e p="OVRMetricsTool" t="Include">
+            <e p="Plugins" t="Include">
+              <e p="Android" t="Include">
+                <e p="OVRMetricsToolSDK.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="PistolAnimations" t="Include">
+          <e p="DesertEagle.cs" t="Include" />
+          <e p="DesertEagle2.cs" t="Include" />
+        </e>
+        <e p="Player.cs" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="InstantiateTriangles.cs" t="Include" />
+          <e p="LightSaber.cs" t="Include" />
+          <e p="SimpleCameraController.cs" t="Include" />
+          <e p="XRInput.cs" t="Include" />
+        </e>
+        <e p="TutorialInfo" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="ReadmeEditor.cs" t="Include" />
+            </e>
+            <e p="Readme.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TwoHandGrabInteractable.cs" t="Include" />
+        <e p="XROffsetGrabInteractable.cs" t="Include" />
+      </e>
+      <e p="NavMeshComponents.csproj" t="IncludeRecursive" />
+      <e p="NavMeshComponentsEditor.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Virtual-Reality-Minor.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
