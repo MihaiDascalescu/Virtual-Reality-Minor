@@ -31,7 +31,6 @@
       <change afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Climber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Climber.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/EnemySimpleAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemySimpleAI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603115892145</updated>
-      <workItem from="1603115917772" duration="3157000" />
+      <workItem from="1603115917772" duration="3888000" />
     </task>
     <servers />
   </component>
