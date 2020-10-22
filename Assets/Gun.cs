@@ -17,10 +17,10 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     public void Fire()
     {
-        GameObject _spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
-        _spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
+        GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+        spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
         
-        Destroy(_spawnedBullet,2);
+        Destroy(spawnedBullet,2);
     }
 
     

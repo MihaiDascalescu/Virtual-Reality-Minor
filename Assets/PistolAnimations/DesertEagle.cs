@@ -22,23 +22,23 @@ public class DesertEagle : MonoBehaviour
 
     public bool Fire { get; set; } = false;
 
-    private Animator _animator;
+    private Animator animator;
     public bool CockBack { get; set; } = false;
     public bool Cocked { get; set; } = false;
 
-    private bool _magazineInGun = false;
+    private bool magazineInGun = false;
     [SerializeField] private int rounds = 0;
     [SerializeField] private Transform magazinePosition;
     public GameObject Magazine { get; set; }
     public bool ReleaseMagazine { get; set; } = false;
 
-    private float _canShootAgainTime = 0.5f;
-    private float _canShootAgain = 0;
+    private float canShootAgainTime = 0.5f;
+    private float canShootAgain = 0;
     
     
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -69,7 +69,7 @@ public class DesertEagle : MonoBehaviour
             onPrimaryReleased.Invoke();
         }
         
-        if (ReleaseMagazine && _magazineInGun)
+        if (ReleaseMagazine && magazineInGun)
         {
             ReleaseMagazineFromGun();
         }
@@ -101,7 +101,7 @@ public class DesertEagle : MonoBehaviour
         {
             if (hitInfo.transform.CompareTag("Enemy"))
             {
-                var targetScript = hitInfo.transform.gameObject.GetComponent<EnemySimpleAI>();
+                var targetScript = hitInfo.transform.gameObject.GetComponent<EnemySimpleAi>();
                 targetScript.TakeDamage(2);
             }
             else if(hitInfo.transform.CompareTag("otherTag"))
@@ -116,29 +116,29 @@ public class DesertEagle : MonoBehaviour
     }
     public void Shoot()
     {
-        if (Cocked && rounds > 1 && _canShootAgain < Time.time)
+        if (Cocked && rounds > 1 && canShootAgain < Time.time)
         {
-            _canShootAgain = Time.time + _canShootAgainTime;
+            canShootAgain = Time.time + canShootAgainTime;
             rounds--;
-            _animator.SetTrigger("Fire");
+            animator.SetTrigger("Fire");
             CheckForHit();
             Invoke("KickBack",0.1f);
             
         }
-        else if(Cocked && rounds == 1 && _canShootAgain < Time.time)
+        else if(Cocked && rounds == 1 && canShootAgain < Time.time)
         {
-            _canShootAgain = Time.time + _canShootAgainTime;
+            canShootAgain = Time.time + canShootAgainTime;
             rounds--;
-            _animator.SetTrigger("FireLastRound");
+            animator.SetTrigger("FireLastRound");
             var bullet = Magazine.transform.GetChild(0).gameObject;
             bullet.SetActive(false);
             CheckForHit();
             Invoke("KickBack",0.1f);
         }
-        else if (Cocked && rounds <= 0 && _animator.GetCurrentAnimatorStateInfo(0).IsTag("FireLastRound") == false)
+        else if (Cocked && rounds <= 0 && animator.GetCurrentAnimatorStateInfo(0).IsTag("FireLastRound") == false)
         {
             Cocked = false;
-            _animator.SetTrigger("FireNoAmmo");
+            animator.SetTrigger("FireNoAmmo");
             
         }
 
@@ -176,7 +176,7 @@ public class DesertEagle : MonoBehaviour
                 rounds = 1;
             }
 
-            _magazineInGun = false;
+            magazineInGun = false;
             Magazine = null;
         }
     }
@@ -185,7 +185,7 @@ public class DesertEagle : MonoBehaviour
     {
         CockBack = false;
         Cocked = true;
-        _animator.SetTrigger("Cockback");
+        animator.SetTrigger("Cockback");
     }
     /*public void SendCartridge()
     {
@@ -202,7 +202,7 @@ public class DesertEagle : MonoBehaviour
     {
         if (other.CompareTag("Magazine"))
         {
-            if (!_magazineInGun)
+            if (!magazineInGun)
             {
                 Magazine = other.gameObject;
                 var newRigidbody = Magazine.GetComponent<Rigidbody>();
@@ -213,7 +213,7 @@ public class DesertEagle : MonoBehaviour
                 Magazine.transform.parent = magazinePosition;
                 Magazine.transform.position = magazinePosition.position;
                 Magazine.transform.rotation = magazinePosition.rotation;
-                _magazineInGun = true;
+                magazineInGun = true;
                 rounds += 9;
 /*                if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("FireLastRound"))
                 {

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.XR.Management;
 
 
-public class EnemyAIStateMachine : MonoBehaviour
+public class EnemyAiStateMachine : MonoBehaviour
 {
     public NavMeshAgent agent;
 
@@ -16,19 +16,21 @@ public class EnemyAIStateMachine : MonoBehaviour
     
     public LayerMask whatIsGround, whatIsPlayer;
 
-    public Animator animator; 
-        
+    public Animator animator;
+
+    public GameObject[] walkPoints;
+    
     public GameObject projectile;
     
     public Vector3 walkPoint;
-    private bool _isWalkPointSet;
+    private bool isWalkPointSet;
     public float walkPointRange;
 
     public float timeBetweenAttacks;
-    private bool _alreadyAttacked;
+    private bool alreadyAttacked;
 
     public float sightRange, attackRange;
-    private bool _isPlayerInSightRange, _isPlayerInAttackRange;
+    private bool isPlayerInSightRange, isPlayerInAttackRange;
 
     
 
@@ -42,30 +44,29 @@ public class EnemyAIStateMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _isPlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        _isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        isPlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         if (!player.gameObject.GetComponent<Player>().IsPlayerDead())
         {
             if (!animator.GetBool("isHit"))
             {
                 
-                if (!_isPlayerInAttackRange && !_isPlayerInSightRange)
+                if (!isPlayerInAttackRange && !isPlayerInSightRange)
                 {
-                
                     animator.SetBool("isLookingForEnemies", true);
                     animator.SetBool("isInAttackRange", false);
                     
                     Patrol();
                 }
 
-                if (!_isPlayerInAttackRange && _isPlayerInSightRange)
+                if (!isPlayerInAttackRange && isPlayerInSightRange)
                 {
                     animator.SetBool("isInAttackRange", false);
 
                     Chase();
                 }
 
-                if (_isPlayerInAttackRange && _isPlayerInSightRange)
+                if (isPlayerInAttackRange && isPlayerInSightRange)
                 {
                     animator.SetBool("isLookingForEnemies", false);
                     animator.SetBool("isInAttackRange", true);
@@ -83,15 +84,18 @@ public class EnemyAIStateMachine : MonoBehaviour
             animator.SetBool("isPlayerDead",true);
         }
     }
-
+    /// <summary>
+    ///Make Sepparate Component Patroler;
+    ///Patrol Pattern 
+    /// </summary>
     private void Patrol()
     {
-        if (!_isWalkPointSet)
+        if (!isWalkPointSet)
         {
             SearchWalkPoint();
         }
 
-        if (_isWalkPointSet)
+        if (isWalkPointSet)
         {
             agent.SetDestination(walkPoint);
         }
@@ -100,7 +104,7 @@ public class EnemyAIStateMachine : MonoBehaviour
 
         if (distanceToWalkPoint.magnitude < 1)
         {
-            _isWalkPointSet = false;
+            isWalkPointSet = false;
         }
     }
 
@@ -119,7 +123,7 @@ public class EnemyAIStateMachine : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
-            _isWalkPointSet = true;
+            isWalkPointSet = true;
         } 
         
     }
@@ -134,16 +138,16 @@ public class EnemyAIStateMachine : MonoBehaviour
         agent.SetDestination(transform.position);
         
         transform.LookAt(player);
-        if (!_alreadyAttacked)
+        if (!alreadyAttacked)
         {
-            _alreadyAttacked = true;
+            alreadyAttacked = true;
             Invoke(nameof(ResetAttack),timeBetweenAttacks);
         }
     }
 
     private void ResetAttack()
     {
-        _alreadyAttacked = false;
+        alreadyAttacked = false;
     }
 
     public void TakeDamage(int damage)
@@ -158,8 +162,7 @@ public class EnemyAIStateMachine : MonoBehaviour
             animator.SetBool("isDead",true);
             Invoke(nameof(DestroyEnemy),2.0f);
         }
-
-       // animator.SetBool("isHit", false);
+        // animator.SetBool("isHit", false);
         animator.SetBool("isLookingForEnemies",true);
     }
 

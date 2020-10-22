@@ -1,31 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR;
 
 public class DesertEagle2 : MonoBehaviour
 {
-    private Animator _animator;
+    private Animator animator;
     [SerializeField] private XRController rightHandController;
-    [SerializeField] private GameObject Magazine;
+    [FormerlySerializedAs("Magazine")] [SerializeField] private GameObject magazine;
     [SerializeField] private GameObject cartridge;
     [SerializeField] private Transform cartridgeExit;
     [SerializeField] private Transform magazinePosition;
     [SerializeField] private Transform barrelExit;
     [SerializeField] private GameObject bulletImpact;
-    private bool ReleaseMagazine;
+    private bool releaseMagazine;
     
-    private float _canShootAgainTime = 0.5f;
-    private float _canShootAgain = 0;
+    private float canShootAgainTime = 0.5f;
+    private float canShootAgain = 0;
     
     [SerializeField] private int rounds;
-    private bool _magazineInGun;
+    private bool magazineInGun;
     
     public bool Cocked { get; set; }
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,7 +36,9 @@ public class DesertEagle2 : MonoBehaviour
         rightHandController.inputDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out isSecondaryPressed);
         if (isSecondaryPressed)
         {
-            _animator.SetTrigger("Cockback");
+            //Add XRGRabInteractable to the Cockback
+            
+            animator.SetTrigger("Cockback");
             Cocked = true;
         }
 
@@ -51,34 +54,34 @@ public class DesertEagle2 : MonoBehaviour
     
     public void Shoot()
     {
-        _animator.SetTrigger("Fire");
-        if (Cocked && rounds > 1 && _canShootAgain < Time.time)
+        animator.SetTrigger("Fire");
+        if (Cocked && rounds > 1 && canShootAgain < Time.time)
         {
-            _canShootAgain = Time.time + _canShootAgainTime;
+            canShootAgain = Time.time + canShootAgainTime;
             rounds--;
-            _animator.SetTrigger("Fire");
+            animator.SetTrigger("Fire");
             CheckForHit();
             Invoke("KickBack",0.1f);
             
         }
-        else if(Cocked && rounds == 1 && _canShootAgain < Time.time)
+        else if(Cocked && rounds == 1 && canShootAgain < Time.time)
         {
-            _canShootAgain = Time.time + _canShootAgainTime;
+            canShootAgain = Time.time + canShootAgainTime;
             rounds--;
-            _animator.SetTrigger("FireLastRound");
-            if (Magazine != null)
+            animator.SetTrigger("FireLastRound");
+            if (magazine != null)
             {
-                var bullet = Magazine.transform.GetChild(0).gameObject;
+                var bullet = magazine.transform.GetChild(0).gameObject;
                 bullet.SetActive(false);
             }
 
             CheckForHit();
             Invoke("KickBack",0.1f);
         }
-        else if (Cocked && rounds <= 0 && _animator.GetCurrentAnimatorStateInfo(0).IsTag("FireLastRound") == false)
+        else if (Cocked && rounds <= 0 && animator.GetCurrentAnimatorStateInfo(0).IsTag("FireLastRound") == false)
         {
             Cocked = false;
-            _animator.SetTrigger("FireNoAmmo");
+            animator.SetTrigger("FireNoAmmo");
             
         }
     }
@@ -86,22 +89,22 @@ public class DesertEagle2 : MonoBehaviour
     
     public void ReleaseMagazineFromGun()
     {
-        ReleaseMagazine = false;
-        if (Magazine != null)
+        releaseMagazine = false;
+        if (magazine != null)
         {
-            Magazine.transform.parent = null;
-            var rigidbody = Magazine.GetComponent<Rigidbody>();
+            magazine.transform.parent = null;
+            var rigidbody = magazine.GetComponent<Rigidbody>();
             rigidbody.isKinematic = false;
             rigidbody.useGravity = true;
-            rigidbody.AddForce(-Magazine.transform.up * 3, ForceMode.Impulse);
+            rigidbody.AddForce(-magazine.transform.up * 3, ForceMode.Impulse);
 
             if (rounds > 1)
             {
                 rounds = 1;
             }
 
-            _magazineInGun = false;
-            Magazine = null;
+            magazineInGun = false;
+            magazine = null;
         }
     }
     public void SendCartridge()
@@ -128,23 +131,23 @@ public class DesertEagle2 : MonoBehaviour
     {
         if (other.CompareTag("Magazine"))
         {
-            if (_magazineInGun == false)
+            if (magazineInGun == false)
             {
-                Magazine = other.gameObject;
-                var newRigidbody = Magazine.GetComponent<Rigidbody>();
+                magazine = other.gameObject;
+                var newRigidbody = magazine.GetComponent<Rigidbody>();
                 newRigidbody.isKinematic = true;
-                Magazine.tag = "UsedMagazine";
-                var collider = Magazine.GetComponent<Collider>();
+                magazine.tag = "UsedMagazine";
+                var collider = magazine.GetComponent<Collider>();
                 collider.enabled = false;
-                Magazine.transform.parent = magazinePosition.parent;
-                Magazine.transform.position = magazinePosition.position;
-                Magazine.transform.rotation = magazinePosition.rotation;
-                _magazineInGun = true;
+                magazine.transform.parent = magazinePosition.parent;
+                magazine.transform.position = magazinePosition.position;
+                magazine.transform.rotation = magazinePosition.rotation;
+                magazineInGun = true;
                 rounds += 9;
                
-                if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("FireLastRound"))
+                if (animator.GetCurrentAnimatorStateInfo(0).IsTag("FireLastRound"))
                 {
-                    _animator.SetTrigger("Loaded");
+                    animator.SetTrigger("Loaded");
                 }
             }
         }
@@ -158,7 +161,7 @@ public class DesertEagle2 : MonoBehaviour
         {
             if (hitInfo.transform.CompareTag("Enemy"))
             {
-                var targetScript = hitInfo.transform.gameObject.GetComponent<EnemySimpleAI>();
+                var targetScript = hitInfo.transform.gameObject.GetComponent<EnemySimpleAi>();
                 targetScript.TakeDamage(2);
             }
             /*else if(hitInfo.transform.CompareTag("otherTag"))

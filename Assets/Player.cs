@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int _healthpoints;
+    [FormerlySerializedAs("_healthpoints")] [SerializeField] private int healthpoints;
     private bool isDead = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        print(_healthpoints);
+        print(healthpoints);
     }
 
     // Update is called once per frame
@@ -22,13 +23,13 @@ public class Player : MonoBehaviour
     public void OnHit(int damage)
     {
        
-        _healthpoints -= damage;
-        print(_healthpoints);
+        healthpoints -= damage;
+        print(healthpoints);
     }
 
     public bool IsPlayerDead()
     {
-        if (_healthpoints <= 0)
+        if (healthpoints <= 0)
         {
             return true;
         }

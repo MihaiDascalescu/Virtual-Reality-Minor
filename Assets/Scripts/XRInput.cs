@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class XRInput : MonoBehaviour
+public class XrInput : MonoBehaviour
 {
-    [SerializeField] private XRController _controller;
-    [SerializeField] private UnityEvent OnPrimaryPressed;
+    [FormerlySerializedAs("_controller")] [SerializeField] private XRController controller;
+    [FormerlySerializedAs("OnPrimaryPressed")] [SerializeField] private UnityEvent onPrimaryPressed;
 
     // Update is called once per frame
     void Update()
     {
         bool isPressed;
-        _controller.inputDevice.TryGetFeatureValue(CommonUsages.primaryButton, out isPressed);
+        controller.inputDevice.TryGetFeatureValue(CommonUsages.primaryButton, out isPressed);
         
-        if (isPressed) OnPrimaryPressed.Invoke();
+        if (isPressed) onPrimaryPressed.Invoke();
         
         
     }

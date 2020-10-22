@@ -56,8 +56,8 @@ namespace UnityTemplateProjects
             }
         }
         
-        CameraState m_TargetCameraState = new CameraState();
-        CameraState m_InterpolatingCameraState = new CameraState();
+        CameraState mTargetCameraState = new CameraState();
+        CameraState mInterpolatingCameraState = new CameraState();
 
         [Header("Movement Settings")]
         [Tooltip("Exponential boost factor on translation, controllable by mouse wheel.")]
@@ -78,8 +78,8 @@ namespace UnityTemplateProjects
 
         void OnEnable()
         {
-            m_TargetCameraState.SetFromTransform(transform);
-            m_InterpolatingCameraState.SetFromTransform(transform);
+            mTargetCameraState.SetFromTransform(transform);
+            mInterpolatingCameraState.SetFromTransform(transform);
         }
 
         Vector3 GetInputTranslationDirection()
@@ -146,8 +146,8 @@ namespace UnityTemplateProjects
                 
                 var mouseSensitivityFactor = mouseSensitivityCurve.Evaluate(mouseMovement.magnitude);
 
-                m_TargetCameraState.yaw += mouseMovement.x * mouseSensitivityFactor;
-                m_TargetCameraState.pitch += mouseMovement.y * mouseSensitivityFactor;
+                mTargetCameraState.yaw += mouseMovement.x * mouseSensitivityFactor;
+                mTargetCameraState.pitch += mouseMovement.y * mouseSensitivityFactor;
             }
             
             // Translation
@@ -167,15 +167,15 @@ namespace UnityTemplateProjects
             // TODO: make the new input system work
 #endif
 
-            m_TargetCameraState.Translate(translation);
+            mTargetCameraState.Translate(translation);
 
             // Framerate-independent interpolation
             // Calculate the lerp amount, such that we get 99% of the way to our target in the specified time
             var positionLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / positionLerpTime) * Time.deltaTime);
             var rotationLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / rotationLerpTime) * Time.deltaTime);
-            m_InterpolatingCameraState.LerpTowards(m_TargetCameraState, positionLerpPct, rotationLerpPct);
+            mInterpolatingCameraState.LerpTowards(mTargetCameraState, positionLerpPct, rotationLerpPct);
 
-            m_InterpolatingCameraState.UpdateTransform(transform);
+            mInterpolatingCameraState.UpdateTransform(transform);
         }
     }
 

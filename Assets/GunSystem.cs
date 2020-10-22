@@ -19,7 +19,7 @@ public class GunSystem : MonoBehaviour
     int bulletsLeft, bulletsShot;
 
     //bools 
-    public bool shooting { get; set; }
+    public bool Shooting { get; set; }
     bool readyToShoot, reloading;
 
     //Reference
@@ -31,8 +31,8 @@ public class GunSystem : MonoBehaviour
     public GameObject bulletHoleGraphic;
     public Text showBullets;
     public GameObject panel;
-    public bool onReload { get; set; } = false;
-    public bool activatePanel { get; set; }
+    public bool OnReload { get; set; } = false;
+    public bool ActivatePanel { get; set; }
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class GunSystem : MonoBehaviour
         MyInput();
 
         showBullets.text = bulletsLeft + "/" + magazineSize;
-        if (activatePanel)
+        if (ActivatePanel)
         {
             panel.SetActive(true);
         }
@@ -61,7 +61,7 @@ public class GunSystem : MonoBehaviour
         if (Vector3.Angle(gunTransform.up, Vector3.up) > 100 && bulletsLeft < magazineSize ) { Reload();}// && !reloading && onReload)
 //        print(Vector3.Angle(gunTransform.up, Vector3.up));
         //Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0){
+        if (readyToShoot && Shooting && !reloading && bulletsLeft > 0){
             bulletsShot = bulletsPerTap;
             Shoot();
         }
@@ -83,7 +83,7 @@ public class GunSystem : MonoBehaviour
         {
             if (rayHit.collider.CompareTag("Enemy"))
             {
-                rayHit.collider.gameObject.GetComponent<EnemySimpleAI>().TakeDamage(damage);
+                rayHit.collider.gameObject.GetComponent<EnemySimpleAi>().TakeDamage(damage);
             }
             else
             {

@@ -9,11 +9,11 @@ public class LightSaber : MonoBehaviour
     // Start is called before the first frame update
     public AudioClip openBeamAudioClip;
     public AudioClip closeBeamAudioClip;
-    private AudioSource _audioSource;
+    private AudioSource audioSource;
 
     private void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void TriggerBeam()
@@ -21,11 +21,11 @@ public class LightSaber : MonoBehaviour
         bool isOn = animator.GetBool("isActive");
         if (!isOn)
         {
-            _audioSource.PlayOneShot(openBeamAudioClip);
+            audioSource.PlayOneShot(openBeamAudioClip);
         }
         else
         {
-            _audioSource.PlayOneShot(closeBeamAudioClip);
+            audioSource.PlayOneShot(closeBeamAudioClip);
            
         }
         animator.SetBool("isActive", !isOn);

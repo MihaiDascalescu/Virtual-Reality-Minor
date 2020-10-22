@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class EnemySimpleAI : MonoBehaviour
+public class EnemySimpleAi : MonoBehaviour
 {
     public NavMeshAgent agent;
 
@@ -21,14 +21,14 @@ public class EnemySimpleAI : MonoBehaviour
     public GameObject projectile;
     
     public Vector3 walkPoint;
-    private bool _isWalkPointSet;
+    private bool isWalkPointSet;
     public float walkPointRange;
 
     public float timeBetweenAttacks;
-    private bool _alreadyAttacked;
+    private bool alreadyAttacked;
 
     public float sightRange, attackRange;
-    private bool _isPlayerInSightRange, _isPlayerInAttackRange;
+    private bool isPlayerInSightRange, isPlayerInAttackRange;
 
     public enum DemonType
     {
@@ -48,14 +48,14 @@ public class EnemySimpleAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _isPlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        _isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        isPlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         if (!player.gameObject.GetComponent<Player>().IsPlayerDead())
         {
             if (!animator.GetBool("isHit"))
             {
                 
-                if (!_isPlayerInAttackRange && !_isPlayerInSightRange)
+                if (!isPlayerInAttackRange && !isPlayerInSightRange)
                 {
                                    
                     animator.SetBool("isLookingForEnemies", true);
@@ -65,14 +65,14 @@ public class EnemySimpleAI : MonoBehaviour
                     
                 }
 
-                if (!_isPlayerInAttackRange && _isPlayerInSightRange)
+                if (!isPlayerInAttackRange && isPlayerInSightRange)
                 {
                     animator.SetBool("isInAttackRange", false);
 
                     Chase();
                 }
 
-                if (_isPlayerInAttackRange && _isPlayerInSightRange)
+                if (isPlayerInAttackRange && isPlayerInSightRange)
                 {
                     animator.SetBool("isLookingForEnemies", false);
                     animator.SetBool("isInAttackRange", true);
@@ -93,12 +93,12 @@ public class EnemySimpleAI : MonoBehaviour
 
     private void Patrol()
     {
-        if (!_isWalkPointSet)
+        if (!isWalkPointSet)
         {
             SearchWalkPoint();
         }
 
-        if (_isWalkPointSet)
+        if (isWalkPointSet)
         {
             agent.SetDestination(walkPoint);
         }
@@ -107,7 +107,7 @@ public class EnemySimpleAI : MonoBehaviour
 
         if (distanceToWalkPoint.magnitude < 1)
         {
-            _isWalkPointSet = false;
+            isWalkPointSet = false;
         }
     }
 
@@ -121,7 +121,7 @@ public class EnemySimpleAI : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
-            _isWalkPointSet = true;
+            isWalkPointSet = true;
         } 
         
     }
@@ -136,16 +136,16 @@ public class EnemySimpleAI : MonoBehaviour
         agent.SetDestination(transform.position);
         
         transform.LookAt(player);
-        if (!_alreadyAttacked)
+        if (!alreadyAttacked)
         {
-            _alreadyAttacked = true;
+            alreadyAttacked = true;
             Invoke(nameof(ResetAttack),timeBetweenAttacks);
         }
     }
 
     private void ResetAttack()
     {
-        _alreadyAttacked = false;
+        alreadyAttacked = false;
     }
 
     public void TakeDamage(int damage)

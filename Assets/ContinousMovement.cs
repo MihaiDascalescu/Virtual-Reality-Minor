@@ -15,58 +15,58 @@ public class ContinousMovement : MonoBehaviour
     public LayerMask groundLayer;
     public float additionalHeight = 0.2f;
     
-    private float _fallingSpeed;
-    private Vector2 _inputAxis;
-    private XRRig _rig;
+    private float fallingSpeed;
+    private Vector2 inputAxis;
+    private XRRig rig;
 
-    private CharacterController _characterController;
+    private CharacterController characterController;
     // Start is called before the first frame update
     void Start()
     {
-        _characterController = GetComponent<CharacterController>();
-        _rig = GetComponent<XRRig>();
+        characterController = GetComponent<CharacterController>();
+        rig = GetComponent<XRRig>();
     }
 
     // Update is called once per frame
     void Update()
     {
         InputDevice device = InputDevices.GetDeviceAtXRNode(inputSource);
-        device.TryGetFeatureValue(CommonUsages.primary2DAxis, out _inputAxis);
+        device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
     }
 
     private void FixedUpdate()
     {
         CapsuleFollowHeadset();
-        Quaternion _headYaw = Quaternion.Euler(0, _rig.cameraGameObject.transform.eulerAngles.y, 0);
-        Vector3 _direction = _headYaw * new Vector3(_inputAxis.x, 0, _inputAxis.y);
+        Quaternion headYaw = Quaternion.Euler(0, rig.cameraGameObject.transform.eulerAngles.y, 0);
+        Vector3 direction = headYaw * new Vector3(inputAxis.x, 0, inputAxis.y);
 
-        _characterController.Move(_direction * speed * Time.fixedDeltaTime);
+        characterController.Move(direction * speed * Time.fixedDeltaTime);
 
         //gravity
         bool isGrounded = CheckIfGrounded();
         if (isGrounded)
         {
-            _fallingSpeed = 0;
+            fallingSpeed = 0;
         }
         else
         {
-            _fallingSpeed += gravity * Time.fixedDeltaTime;
+            fallingSpeed += gravity * Time.fixedDeltaTime;
         }
 
-        _characterController.Move(Vector3.up * _fallingSpeed * Time.fixedDeltaTime);
+        characterController.Move(Vector3.up * fallingSpeed * Time.fixedDeltaTime);
     }
 
     void CapsuleFollowHeadset()
     {
-        _characterController.height = _rig.cameraInRigSpaceHeight + additionalHeight;
-        Vector3 capsuleCenter = transform.InverseTransformPoint(_rig.cameraGameObject.transform.position);
-        _characterController.center = new Vector3(capsuleCenter.x,_characterController.height/2 + _characterController.skinWidth,capsuleCenter.z);
+        characterController.height = rig.cameraInRigSpaceHeight + additionalHeight;
+        Vector3 capsuleCenter = transform.InverseTransformPoint(rig.cameraGameObject.transform.position);
+        characterController.center = new Vector3(capsuleCenter.x,characterController.height/2 + characterController.skinWidth,capsuleCenter.z);
     }
     bool CheckIfGrounded()
     {
-        Vector3 rayStart = transform.TransformPoint(_characterController.center);
-        float rayLength = _characterController.center.y + 0.01f;
-        bool hasHit = Physics.SphereCast(rayStart, _characterController.radius, Vector3.down, out RaycastHit hitInfo,
+        Vector3 rayStart = transform.TransformPoint(characterController.center);
+        float rayLength = characterController.center.y + 0.01f;
+        bool hasHit = Physics.SphereCast(rayStart, characterController.radius, Vector3.down, out RaycastHit hitInfo,
             rayLength, groundLayer);
         return hasHit;
     }

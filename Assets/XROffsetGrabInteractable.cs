@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class XROffsetGrabInteractable : XRGrabInteractable
+public class XrOffsetGrabInteractable : XRGrabInteractable
 {
-    private Vector3 InitialAttachLocalPose;
+    private Vector3 initialAttachLocalPose;
 
-    private Quaternion InitialAttachLocalRot;
+    private Quaternion initialAttachLocalRot;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +18,8 @@ public class XROffsetGrabInteractable : XRGrabInteractable
             attachTransform = grab.transform;
         }
 
-        InitialAttachLocalPose = attachTransform.localPosition;
-        InitialAttachLocalRot = attachTransform.localRotation;
+        initialAttachLocalPose = attachTransform.localPosition;
+        initialAttachLocalRot = attachTransform.localRotation;
     }
 
     protected override void OnSelectEnter(XRBaseInteractor interactor)
@@ -31,8 +31,8 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         }
         else
         {
-            attachTransform.localPosition = InitialAttachLocalPose;
-            attachTransform.localRotation = InitialAttachLocalRot;
+            attachTransform.localPosition = initialAttachLocalPose;
+            attachTransform.localRotation = initialAttachLocalRot;
         }
         
         base.OnSelectEnter(interactor);

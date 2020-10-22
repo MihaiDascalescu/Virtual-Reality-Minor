@@ -20,17 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="765d0cc8-19bc-41cf-b9a9-3fc147aedbef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/.idea.Virtual-Reality-Minor.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Climber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Climber.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemySimpleAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemySimpleAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PistolAnimations/DesertEagle2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PistolAnimations/DesertEagle2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +37,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/EnemySimpleAI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PistolAnimations/DesertEagle2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Climber.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../TestVR4URP/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Runtime/UniversalRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/torch/scripts/Torchelight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/torch/scene/script/TorchSlider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -51,6 +50,8 @@
         <option value="$PROJECT_DIR$/Assets/EnemySimpleAi.cs" />
         <option value="$PROJECT_DIR$/Assets/Climber.cs" />
         <option value="$PROJECT_DIR$/Assets/EnemySimpleAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/torch/scripts/Torchelight.cs" />
+        <option value="$PROJECT_DIR$/Assets/PistolAnimations/DesertEagle2.cs" />
         <option value="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" />
       </list>
     </option>
@@ -65,6 +66,7 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -91,6 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603115892145</updated>
       <workItem from="1603115917772" duration="3888000" />
+      <workItem from="1603372756692" duration="4156000" />
     </task>
     <servers />
   </component>
@@ -109,8 +112,15 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1603385068764">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603385068764" />
   </component>
 </project>
