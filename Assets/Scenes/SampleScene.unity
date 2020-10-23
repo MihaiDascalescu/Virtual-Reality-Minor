@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa76ca9bd2e6bd419b185ebed648c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthpoints: 10
+  healthpoints: 10
 --- !u!1 &180932251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,19 +2463,21 @@ MonoBehaviour:
   player: {fileID: 179222533}
   health: 10
   whatIsGround:
-    serializedVersion: 2
     m_Bits: 512
   whatIsPlayer:
-    serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 0}
   projectile: {fileID: 757626588488969650, guid: ce2d1c0615cb7ef4ebeaa68dcc334a54,
     type: 3}
   walkPoint: {x: 0, y: 0, z: 0}
+  _isWalkPointSet: 0
   walkPointRange: 3
   timeBetweenAttacks: 1
+  _alreadyAttacked: 0
   sightRange: 5
   attackRange: 4
+  _isPlayerInSightRange: 0
+  _isPlayerInAttackRange: 0
   demonType: 0
 --- !u!65 &268258036
 BoxCollider:
@@ -4069,19 +4071,21 @@ MonoBehaviour:
   player: {fileID: 179222533}
   health: 10
   whatIsGround:
-    serializedVersion: 2
     m_Bits: 512
   whatIsPlayer:
-    serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 0}
   projectile: {fileID: 757626588488969650, guid: ce2d1c0615cb7ef4ebeaa68dcc334a54,
     type: 3}
   walkPoint: {x: 0, y: 0, z: 0}
+  _isWalkPointSet: 0
   walkPointRange: 3
   timeBetweenAttacks: 1
+  _alreadyAttacked: 0
   sightRange: 5
   attackRange: 4
+  _isPlayerInSightRange: 0
+  _isPlayerInAttackRange: 0
   demonType: 0
 --- !u!65 &458165322
 BoxCollider:
@@ -4409,19 +4413,21 @@ MonoBehaviour:
   player: {fileID: 179222533}
   health: 10
   whatIsGround:
-    serializedVersion: 2
     m_Bits: 512
   whatIsPlayer:
-    serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 511347750}
   projectile: {fileID: 757626588488969650, guid: ce2d1c0615cb7ef4ebeaa68dcc334a54,
     type: 3}
   walkPoint: {x: 0, y: 0, z: 0}
+  _isWalkPointSet: 0
   walkPointRange: 3
   timeBetweenAttacks: 1
+  _alreadyAttacked: 0
   sightRange: 4
   attackRange: 1.5
+  _isPlayerInSightRange: 0
+  _isPlayerInAttackRange: 0
   demonType: 1
 --- !u!65 &511347753
 BoxCollider:
@@ -4452,19 +4458,21 @@ MonoBehaviour:
   player: {fileID: 179222533}
   health: 10
   whatIsGround:
-    serializedVersion: 2
     m_Bits: 512
   whatIsPlayer:
-    serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 511347750}
   walkPoints: []
   projectile: {fileID: 0}
   walkPoint: {x: 0, y: 0, z: 0}
+  _isWalkPointSet: 0
   walkPointRange: 3
   timeBetweenAttacks: 1
+  _alreadyAttacked: 0
   sightRange: 4
   attackRange: 1.5
+  _isPlayerInSightRange: 0
+  _isPlayerInAttackRange: 0
 --- !u!1 &512817566
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,32 +5335,43 @@ MonoBehaviour:
   m_Colliders:
   - {fileID: 578766455}
   m_InteractionLayerMask:
-    serializedVersion: 2
     m_Bits: 4294967295
+  m_HoveringInteractors: []
+  <isHovered>k__BackingField: 0
+  <isSelected>k__BackingField: 0
+  m_RegisteredInteractionManager: {fileID: 0}
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnLastHoverExit:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnActivate:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
@@ -5368,10 +5387,8 @@ MonoBehaviour:
   m_ThrowOnDetach: 1
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
-    serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
-      time: 1
+    - time: 1
       value: 1
       inSlope: 0
       outSlope: 0
@@ -5386,6 +5403,88 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
+  m_WasKinematic: 0
+  m_UsedGravity: 0
+  m_OriginalSceneParent: {fileID: 0}
+  m_SelectingInteractor: {fileID: 0}
+  m_InteractorLocalPosition: {x: 0, y: 0, z: 0}
+  m_InteractorLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_TargetWorldPosition: {x: 0, y: 0, z: 0}
+  m_TargetWorldRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_CurrentAttachEaseTime: 0
+  m_CurrentMovementType: 0
+  m_DetachInLateUpdate: 0
+  m_DetachVelocity: {x: 0, y: 0, z: 0}
+  m_DetachAngularVelocity: {x: 0, y: 0, z: 0}
+  m_ThrowSmoothingCurrentFrame: 0
+  m_ThrowSmoothingFrameTimes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  m_ThrowSmoothingVelocityFrames:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  m_ThrowSmoothingAngularVelocityFrames:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  m_RigidBody: {fileID: 0}
+  m_LastPosition: {x: 0, y: 0, z: 0}
+  m_LastRotation: {x: 0, y: 0, z: 0, w: 0}
+  InitialAttachLocalPose: {x: 0, y: 0, z: 0}
+  InitialAttachLocalRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!153 &578766459
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -6091,19 +6190,21 @@ MonoBehaviour:
   player: {fileID: 179222533}
   health: 10
   whatIsGround:
-    serializedVersion: 2
     m_Bits: 512
   whatIsPlayer:
-    serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 0}
   projectile: {fileID: 757626588488969650, guid: ce2d1c0615cb7ef4ebeaa68dcc334a54,
     type: 3}
   walkPoint: {x: 0, y: 0, z: 0}
+  _isWalkPointSet: 0
   walkPointRange: 3
   timeBetweenAttacks: 1
+  _alreadyAttacked: 0
   sightRange: 5
   attackRange: 4
+  _isPlayerInSightRange: 0
+  _isPlayerInAttackRange: 0
   demonType: 0
 --- !u!65 &628167716
 BoxCollider:
@@ -6887,32 +6988,43 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayerMask:
-    serializedVersion: 2
     m_Bits: 4294967295
+  m_HoveringInteractors: []
+  <isHovered>k__BackingField: 0
+  <isSelected>k__BackingField: 0
+  m_RegisteredInteractionManager: {fileID: 0}
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnLastHoverExit:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnActivate:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
@@ -6928,10 +7040,8 @@ MonoBehaviour:
   m_ThrowOnDetach: 1
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
-    serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
-      time: 1
+    - time: 1
       value: 1
       inSlope: 0
       outSlope: 0
@@ -6946,6 +7056,88 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
+  m_WasKinematic: 0
+  m_UsedGravity: 0
+  m_OriginalSceneParent: {fileID: 0}
+  m_SelectingInteractor: {fileID: 0}
+  m_InteractorLocalPosition: {x: 0, y: 0, z: 0}
+  m_InteractorLocalRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_TargetWorldPosition: {x: 0, y: 0, z: 0}
+  m_TargetWorldRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_CurrentAttachEaseTime: 0
+  m_CurrentMovementType: 0
+  m_DetachInLateUpdate: 0
+  m_DetachVelocity: {x: 0, y: 0, z: 0}
+  m_DetachAngularVelocity: {x: 0, y: 0, z: 0}
+  m_ThrowSmoothingCurrentFrame: 0
+  m_ThrowSmoothingFrameTimes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  m_ThrowSmoothingVelocityFrames:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  m_ThrowSmoothingAngularVelocityFrames:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  m_RigidBody: {fileID: 0}
+  m_LastPosition: {x: 0, y: 0, z: 0}
+  m_LastRotation: {x: 0, y: 0, z: 0, w: 0}
+  InitialAttachLocalPose: {x: 0, y: 0, z: 0}
+  InitialAttachLocalRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &734191250
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12763,19 +12955,21 @@ MonoBehaviour:
   player: {fileID: 179222533}
   health: 10
   whatIsGround:
-    serializedVersion: 2
     m_Bits: 512
   whatIsPlayer:
-    serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 0}
   projectile: {fileID: 757626588488969650, guid: ce2d1c0615cb7ef4ebeaa68dcc334a54,
     type: 3}
   walkPoint: {x: 0, y: 0, z: 0}
+  _isWalkPointSet: 0
   walkPointRange: 3
   timeBetweenAttacks: 1
+  _alreadyAttacked: 0
   sightRange: 5
   attackRange: 4
+  _isPlayerInSightRange: 0
+  _isPlayerInAttackRange: 0
   demonType: 0
 --- !u!65 &821364132
 BoxCollider:
@@ -13024,7 +13218,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 479731390d3f87449bb39dd5274f14c6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.33070025
+      value: -0.612
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 479731390d3f87449bb39dd5274f14c6,
         type: 3}
@@ -23309,19 +23503,21 @@ MonoBehaviour:
   player: {fileID: 179222533}
   health: 10
   whatIsGround:
-    serializedVersion: 2
     m_Bits: 512
   whatIsPlayer:
-    serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 1362034891}
   projectile: {fileID: 757626588488969650, guid: ce2d1c0615cb7ef4ebeaa68dcc334a54,
     type: 3}
   walkPoint: {x: 0, y: 0, z: 0}
+  _isWalkPointSet: 0
   walkPointRange: 3
   timeBetweenAttacks: 1
+  _alreadyAttacked: 0
   sightRange: 4
   attackRange: 1.5
+  _isPlayerInSightRange: 0
+  _isPlayerInAttackRange: 0
   demonType: 0
 --- !u!195 &1362034890
 NavMeshAgent:
@@ -23393,19 +23589,21 @@ MonoBehaviour:
   player: {fileID: 179222533}
   health: 10
   whatIsGround:
-    serializedVersion: 2
     m_Bits: 512
   whatIsPlayer:
-    serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 1362034891}
   walkPoints: []
   projectile: {fileID: 0}
   walkPoint: {x: 0, y: 0, z: 0}
+  _isWalkPointSet: 0
   walkPointRange: 3
   timeBetweenAttacks: 1
+  _alreadyAttacked: 0
   sightRange: 4
   attackRange: 1.5
+  _isPlayerInSightRange: 0
+  _isPlayerInAttackRange: 0
 --- !u!1 &1367107020
 GameObject:
   m_ObjectHideFlags: 0
@@ -28533,7 +28731,6 @@ GameObject:
   - component: {fileID: 14132369142702205}
   - component: {fileID: 14132369142702204}
   - component: {fileID: 14132369142702203}
-  - component: {fileID: 14132369142702202}
   - component: {fileID: 14132369142702207}
   m_Layer: 15
   m_Name: DesertEagle
@@ -28542,48 +28739,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &14132369142702202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14132369142702201}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc3744ffca9a73c4fb9d0fb52e7840d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftXrController: {fileID: 489781432}
-  rightXrController: {fileID: 1329584389}
-  onPrimaryPressed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14132369142702202}
-        m_MethodName: CockBackSlider
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  onPrimaryReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  leftXrControllerParent: {fileID: 1112971987}
-  rightXrControllerParent: {fileID: 1259598779}
-  cartridge: {fileID: 5252296640200075355, guid: 55715a4f9a6a99044b6d313667361f27,
-    type: 3}
-  cartridgeExit: {fileID: 1457123451}
-  barrelExit: {fileID: 46611140}
-  bulletImpact: {fileID: 3769559490054316686, guid: 7ccc3a98d4edc5c4a89e335c24ffc596,
-    type: 3}
-  cockBackPosition: {fileID: 6004933784788123811}
-  rounds: 10
-  magazinePosition: {fileID: 36829598}
 --- !u!95 &14132369142702203
 Animator:
   serializedVersion: 3
@@ -28730,7 +28885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightHandController: {fileID: 1259598781}
-  Magazine: {fileID: 36829597}
+  magazine: {fileID: 36829597}
   cartridge: {fileID: 5252296640200075355, guid: 55715a4f9a6a99044b6d313667361f27,
     type: 3}
   cartridgeExit: {fileID: 1457123451}

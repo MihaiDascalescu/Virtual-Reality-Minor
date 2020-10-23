@@ -6,7 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.XR.Management;
 
 
-public class EnemyAiStateMachine : MonoBehaviour
+public class EnemyAIStateMachine : MonoBehaviour
 {
     public NavMeshAgent agent;
 
@@ -37,7 +37,6 @@ public class EnemyAiStateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         agent = GetComponent<NavMeshAgent>();
     }
 
