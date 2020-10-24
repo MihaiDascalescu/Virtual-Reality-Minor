@@ -42,7 +42,6 @@ public class GunSystem : MonoBehaviour
     private void Update()
     {
         MyInput();
-
         showBullets.text = bulletsLeft + "/" + magazineSize;
         if (ActivatePanel)
         {
@@ -57,10 +56,8 @@ public class GunSystem : MonoBehaviour
     private void MyInput()
     {
         
-
         if (Vector3.Angle(gunTransform.up, Vector3.up) > 100 && bulletsLeft < magazineSize ) { Reload();}// && !reloading && onReload)
-//        print(Vector3.Angle(gunTransform.up, Vector3.up));
-        //Shoot
+
         if (readyToShoot && Shooting && !reloading && bulletsLeft > 0){
             bulletsShot = bulletsPerTap;
             Shoot();
@@ -83,25 +80,21 @@ public class GunSystem : MonoBehaviour
         {
             if (rayHit.collider.CompareTag("Enemy"))
             {
-                rayHit.collider.gameObject.GetComponent<EnemySimpleAi>().TakeDamage(damage);
+                rayHit.collider.gameObject.GetComponent<EnemyAIStateMachine>().TakeDamage(damage);
             }
             else
             {
                 return;
             }
         }
-
-      
-
+        
         //Graphics
         Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
         
-
         bulletsLeft--;
         bulletsShot--;
 
         Invoke("ResetShot", timeBetweenShooting);
-
         if(bulletsShot > 0 && bulletsLeft > 0)
         Invoke("Shoot", timeBetweenShots);
     }

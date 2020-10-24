@@ -22,14 +22,9 @@
     <list default="true" id="765d0cc8-19bc-41cf-b9a9-3fc147aedbef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Global Volume Profile 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Global Volume Profile 2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/LightingData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Lightmap-0_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Lightmap-0_comp_light.exr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/NavMesh-Plane.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/NavMesh-Plane.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/ReflectionProbe-0.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/ReflectionProbe-0.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GunSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GunSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TheoAssets/TerainTextures/Mat_GroundPebbles.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TheoAssets/TerainTextures/Mat_GroundPebbles.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +40,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Climber.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../TestVR4URP/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Runtime/UniversalRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/torch/scripts/Torchelight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GunSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/torch/scene/script/TorchSlider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -56,6 +52,7 @@
         <option value="$PROJECT_DIR$/Assets/PistolAnimations/DesertEagle2.cs" />
         <option value="$PROJECT_DIR$/Assets/EnemySimpleAI.cs" />
         <option value="$PROJECT_DIR$/Assets/torch/scripts/Torchelight.cs" />
+        <option value="$PROJECT_DIR$/Assets/GunSystem.cs" />
         <option value="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" />
       </list>
     </option>
@@ -98,7 +95,7 @@
       <updated>1603115892145</updated>
       <workItem from="1603115917772" duration="3888000" />
       <workItem from="1603372756692" duration="6499000" />
-      <workItem from="1603449414414" duration="349000" />
+      <workItem from="1603449414414" duration="8032000" />
     </task>
     <servers />
   </component>

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.XR.Management;
 
 
+
 public class EnemyAIStateMachine : MonoBehaviour
 {
     public NavMeshAgent agent;
@@ -14,30 +15,31 @@ public class EnemyAIStateMachine : MonoBehaviour
 
     public int health;
     
-    public LayerMask whatIsGround, whatIsPlayer;
+    public LayerMask whatIsGround, whatIsPlayer,whatIsWalkPoint;
 
     public Animator animator;
 
     public GameObject[] walkPoints;
     
     public GameObject projectile;
-    
+    private bool walkPointReached = false;
     public Vector3 walkPoint;
     private bool isWalkPointSet;
     public float walkPointRange;
-
+    private GameObject walkPointer;
     public float timeBetweenAttacks;
     private bool alreadyAttacked;
 
     public float sightRange, attackRange;
     private bool isPlayerInSightRange, isPlayerInAttackRange;
-
+    private int destPoint;
     
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        GotoNextPoint();
     }
 
     // Update is called once per frame
@@ -89,24 +91,24 @@ public class EnemyAIStateMachine : MonoBehaviour
     /// </summary>
     private void Patrol()
     {
-        if (!isWalkPointSet)
-        {
-            SearchWalkPoint();
-        }
-
-        if (isWalkPointSet)
-        {
-            agent.SetDestination(walkPoint);
-        }
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        if (distanceToWalkPoint.magnitude < 1)
-        {
-            isWalkPointSet = false;
-        }
+        if (!agent.pathPending && agent.remainingDistance < 1.0f)
+            GotoNextPoint();
+      
+        
     }
+    void GotoNextPoint() 
+    {
+        // Returns if no points have been set up
+        if (walkPoints.Length == 0)
+            return;
 
+        // Set the agent to go to the currently selected destination.
+        agent.destination = walkPoints[destPoint].transform.position;
+
+        // Choose the next point in the array as the destination,
+        // cycling to the start if necessary.
+        destPoint = (destPoint + 1) % walkPoints.Length;
+    }
     void Guard()
     {
         
@@ -188,4 +190,59 @@ public class EnemyAIStateMachine : MonoBehaviour
     }
 
     
+
+    /*void Patrol()
+{
+  
+
+if (!isWalkPointSet)
+{
+    SearchWalkPoint();
+}
+
+if (isWalkPointSet)
+{
+    agent.SetDestination(walkPoint);
+}
+
+Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+if (distanceToWalkPoint.magnitude < 1)
+{
+    isWalkPointSet = false;
+}
+    }*/
+    /*Vector3 distanceToWalkPoint = new Vector3();
+      if (walkPoints == null) return;
+      int randomIndex = UnityEngine.Random.Range(0, walkPoints.Length - 1);
+      if (!isWalkPointSet)
+      {
+          agent.SetDestination(walkPoints[randomIndex].transform.position);
+      }
+      if (isWalkPointSet == true)
+      {
+          isWalkPointSet = false;
+      }
+      if (Physics.CheckSphere(transform.position,1,whatIsWalkPoint))
+      {
+          isWalkPointSet = false;
+      }
+      if (!isWalkPointSet)
+      {
+          for (int i = 0; i < walkPoints.Length; i++)
+          {
+              walkPointer = walkPoints[i];
+              agent.SetDestination(walkPointer.transform.position);
+              
+              
+              if (i == walkPoints.Length)
+              {
+                  i = 0;
+              }
+          }
+          isWalkPointSet = true;
+      }
+
+      distanceToWalkPoint = transform.position - walkPointer.transform.position;
+      print(isWalkPointSet);*/
 }

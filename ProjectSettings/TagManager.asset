@@ -9,6 +9,7 @@ TagManager:
   - UsedMagazine
   - FinalHandle
   - FxTemporaire
+  - WalkPoint
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - PostProcessing
   - AnimatedGuns
   - Walls
-  - 
+  - WalkPoints
   - 
   - 
   - 
