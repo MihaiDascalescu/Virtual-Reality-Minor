@@ -20,11 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="765d0cc8-19bc-41cf-b9a9-3fc147aedbef" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GunSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GunSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,7 @@
       <updated>1603115892145</updated>
       <workItem from="1603115917772" duration="3888000" />
       <workItem from="1603372756692" duration="6499000" />
-      <workItem from="1603449414414" duration="8032000" />
+      <workItem from="1603449414414" duration="8632000" />
     </task>
     <servers />
   </component>

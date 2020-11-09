@@ -4403,6 +4403,9 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1024
+  whatIsWalkPoint:
+    serializedVersion: 2
+    m_Bits: 0
   animator: {fileID: 511347750}
   walkPoints: []
   projectile: {fileID: 0}
@@ -22494,6 +22497,9 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1024
+  whatIsWalkPoint:
+    serializedVersion: 2
+    m_Bits: 0
   animator: {fileID: 1362034891}
   walkPoints: []
   projectile: {fileID: 0}
