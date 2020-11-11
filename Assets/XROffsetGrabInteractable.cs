@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class XrOffsetGrabInteractable : XRGrabInteractable
+public class XROffsetGrabInteractable : XRGrabInteractable
 {
     private Vector3 initialAttachLocalPose;
 
