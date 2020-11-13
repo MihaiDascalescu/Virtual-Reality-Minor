@@ -21,36 +21,85 @@
   <component name="ChangeListManager">
     <list default="true" id="765d0cc8-19bc-41cf-b9a9-3fc147aedbef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Demon/demonSkin_2048x2048.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Demon/demonSkin_2048x2048.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Materials/SteelLadder A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Materials/SteelLadder A.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Materials/SteelLadder B.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Materials/SteelLadder B.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Checker Wall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Checker Wall.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Checker.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Checker.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Concrete Wall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Concrete Wall.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Concrete.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Concrete.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_M4 Normal.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_M4 Normal.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_M4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_M4.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Metal Wall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Metal Wall.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Metal.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Metal.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Wood Wall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Wood Wall.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Wood.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_M_Wood.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VR Controllers Models/Oculus Controllers/oculus_cv1_controller_left/oculus_cv1_left_controller.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VR Controllers Models/Oculus Controllers/oculus_cv1_controller_left/oculus_cv1_left_controller.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VR Controllers Models/Oculus Controllers/oculus_cv1_controller_right/oculus_cv1_right_controller.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VR Controllers Models/Oculus Controllers/oculus_cv1_controller_right/oculus_cv1_right_controller.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VR Controllers Models/Oculus Controllers/oculus_rifts_controller_right/oculus_quest_right.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VR Controllers Models/Oculus Controllers/oculus_rifts_controller_right/oculus_quest_right.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VR Controllers Models/Valve Index Controllers/valve-index-controller-left/source/Valve Index Controller Left.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VR Controllers Models/Valve Index Controllers/valve-index-controller-left/source/Valve Index Controller Left.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VR Controllers Models/Valve Index Controllers/valve-index-controller-right/source/Valve Index Controller Right.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VR Controllers Models/Valve Index Controllers/valve-index-controller-right/source/Valve Index Controller Right.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VR Controllers Models/Vive Controllers/Textures/ViveController.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VR Controllers Models/Vive Controllers/Textures/ViveController.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XROffsetGrabInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XROffsetGrabInteractable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/torch/scene/model/roc_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/torch/scene/model/roc_mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AttackPlayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AttackPlayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletHoleEffect.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletHoleEffect.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletHoleEffect.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletHoleEffect.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletHoleRockAlbedo.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletHoleRockAlbedo.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletHoleRockHeight.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletHoleRockHeight.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletHoleRockNormals.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletHoleRockNormals.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ClimbInteractable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ClimbInteractable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Climber.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Climber.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ColorRamp.shadergraph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ColorRamp.shadergraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ContinousMovement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ContinousMovement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DemonMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DemonMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DottedLine.shadergraph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DottedLine.shadergraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DottedLineMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DottedLineMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemySimpleAI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemySimpleAI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FollowToTheSide.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FollowToTheSide.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Gun.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Gun.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GunSystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GunSystem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HandPresence.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HandPresence.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeftHand.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeftHand.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeftHandAnimator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeftHandAnimator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LocomotionController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LocomotionController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/M4_Complete.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/M4_Complete.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Magazine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Magazine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/OnTargetReached.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/OnTargetReached.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Piskel-blender.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Piskel-blender.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RightHand.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RightHand.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RightHandAnimator 1.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RightHandAnimator 1.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Teleport Reticule.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Teleport Reticule.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TeleportReticuleMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TeleportReticuleMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TwoHandGrabInteractable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TwoHandGrabInteractable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WallsRed.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WallsRed.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/White-Trait.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/White-Trait.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XROffsetGrabInteractable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XROffsetGrabInteractable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRSocketInteractorTag.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRSocketInteractorTag.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/shit.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/shit.fbx.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,18 +112,14 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PistolAnimations/DesertEagle2.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/XROffsetGrabInteractable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Climber.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/EnemyAIStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/EnemySimpleAI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/torch/scripts/Torchelight.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GunSystem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Magazine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/torch/scene/script/TorchSlider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/EnemySimpleAI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Interaction/Interactors/XRSocketInteractor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../TestVR4URP/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Runtime/UniversalRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/OnTargetReached.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/XRSocketInteractorTag.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../TestVR4URP/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Runtime/UniversalRenderPipeline.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -91,6 +136,9 @@
         <option value="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/OnTargetReached.cs" />
         <option value="$PROJECT_DIR$/Assets/XRSocketInteractorTag.cs" />
+        <option value="$PROJECT_DIR$/Assets/CustomScripts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/CustomScripts/Patrol.cs" />
+        <option value="$PROJECT_DIR$/Assets/CustomScripts/EnemyAIStateMachine.cs" />
       </list>
     </option>
   </component>
@@ -135,6 +183,7 @@
       <workItem from="1603449414414" duration="8632000" />
       <workItem from="1604931464529" duration="1542000" />
       <workItem from="1605012815774" duration="4439000" />
+      <workItem from="1605096787452" duration="5777000" />
     </task>
     <servers />
   </component>
