@@ -179,7 +179,7 @@ public class EnemySimpleAi : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer))
         {
-            player.gameObject.GetComponent<Player>().OnHit(2);
+            //player.gameObject.GetComponent<Player>().OnHit(2);
         }
         else
         {

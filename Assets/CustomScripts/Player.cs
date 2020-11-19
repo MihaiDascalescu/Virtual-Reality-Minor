@@ -3,40 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
-
+[RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int healthpoints;
+
+    private Health health;
+
     private bool isDead = false;
-    public UnityEvent isPlayerDead;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        print(healthpoints);
+        health = GetComponent<Health>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-       
+        health.Died += Die;
     }
 
-    public void OnHit(int damage)
+    private void OnDisable()
     {
-        healthpoints -= damage;
-        print(healthpoints);
+        health.Died -= Die;
+    }
+
+    public void Die()
+    {
+        gameObject.SetActive(false);
     }
 
     public bool IsPlayerDead()
     {
-        if (healthpoints <= 0)
+        if (health.currentHealth <= 0)
         {
-            return true;
+            isDead = true;
         }
-        else
-        {
-            return false;
-        }
+
+        return isDead;
     }
+
+
 }

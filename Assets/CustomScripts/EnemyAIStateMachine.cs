@@ -50,8 +50,8 @@ public class EnemyAIStateMachine : MonoBehaviour
     {
         isPlayerInSightRange = Physics.CheckSphere(position: transform.position, radius: sightRange, layerMask: whatIsPlayer);
         isPlayerInAttackRange = Physics.CheckSphere(position: transform.position, radius: attackRange, layerMask: whatIsPlayer);
-        if (!player.gameObject.GetComponent<Player>().IsPlayerDead())
-        {
+        // (!player.gameObject.GetComponent<Player>().IsPlayerDead())
+        
             if (!animator.GetBool(name: "isHit"))
             {
 
@@ -79,7 +79,7 @@ public class EnemyAIStateMachine : MonoBehaviour
                     ResetAttackAnimation();
                 }
             }
-        }
+        
         else
         {
             animator.SetBool(name: "isPlayerDead", value: true);
@@ -166,7 +166,7 @@ public class EnemyAIStateMachine : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer))
         {
-            player.gameObject.GetComponent<Player>().OnHit(2);
+           // player.gameObject.GetComponent<Player>().OnHit(2);
         }
         else
         {
