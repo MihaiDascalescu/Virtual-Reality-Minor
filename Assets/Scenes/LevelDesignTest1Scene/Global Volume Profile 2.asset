@@ -16,7 +16,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   temperature:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: -100
     min: -100
     max: 100
   tint:
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.9622642, g: 0.049928807, b: 0.049928807, a: 1}
+    m_Value: {r: 0.9811321, g: 0.18974723, b: 0.18974723, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -49,12 +49,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.478
+    m_Value: 0.579
     min: 0
     max: 1
   smoothness:
-    m_OverrideState: 0
-    m_Value: 0.2
+    m_OverrideState: 1
+    m_Value: 0.241
     min: 0.01
     max: 1
   rounded:
@@ -84,7 +84,7 @@ MonoBehaviour:
     min: 0
   scatter:
     m_OverrideState: 1
-    m_Value: 0.387
+    m_Value: 1
     min: 0
     max: 1
   clamp:

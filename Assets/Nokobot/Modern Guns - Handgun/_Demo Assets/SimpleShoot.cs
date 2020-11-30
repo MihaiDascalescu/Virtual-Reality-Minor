@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using StateMachineScripts;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -16,41 +17,38 @@ public class SimpleShoot : MonoBehaviour
     [SerializeField] private Transform barrelLocation;
     [SerializeField] private Transform casingExitLocation;
 
+    [SerializeField] private float spread = 0.02f;
     [Header("Settings")]
     [Tooltip("Specify time to destory the casing object")] [SerializeField] private float destroyTimer = 2f;
     [Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
+
     public AudioSource source;
-    public AudioClip shootSound;
+    public AudioClip fireSound;
     public AudioClip reload;
     public AudioClip noAmmo;
-    public Magazine currentMagazine;
-    public XRSocketInteractor socketInteractor;
-    private bool hasSlide = true;
-    void Start()
-    {
-        if (barrelLocation == null)
-            barrelLocation = transform;
+    
+    private RaycastHit rayHit;
+    [SerializeField] private LayerMask whatIsEnemy;
+    [SerializeField] private float range;
+    [SerializeField] private int damage;
 
-        if (gunAnimator == null)
-            gunAnimator = GetComponentInChildren<Animator>();
-        
-        socketInteractor.onSelectEnter.AddListener(AddMagazine);
-        socketInteractor.onSelectExit.AddListener(RemoveMagazine);
-        
-    }
+    public Magazine magazine;
+    public XRBaseInteractor socketInteractor;
+    private bool hasSlide = true;
+
 
     public void AddMagazine(XRBaseInteractable interactable)
     {
-        currentMagazine = interactable.GetComponent<Magazine>();
+        magazine = interactable.GetComponent<Magazine>();
         source.PlayOneShot(reload);
         hasSlide = false;
     }
 
     public void RemoveMagazine(XRBaseInteractable interactable)
     {
-        currentMagazine = null;
+        magazine = null;
         source.PlayOneShot(reload);
     }
 
@@ -59,9 +57,23 @@ public class SimpleShoot : MonoBehaviour
         hasSlide = true;
         source.PlayOneShot(reload);
     }
+
+    void Start()
+    {
+        if (barrelLocation == null)
+            barrelLocation = transform;
+
+        if (gunAnimator == null)
+            gunAnimator = GetComponentInChildren<Animator>();
+
+        socketInteractor.onSelectEnter.AddListener(AddMagazine);
+        socketInteractor.onSelectExit.AddListener(RemoveMagazine);
+    }
+
+
     public void PullTheTrigger()
     {
-        if (currentMagazine && currentMagazine.bulletsCount > 0 && hasSlide)
+        if(magazine && magazine.bulletsCount > 0 && hasSlide)
         {
             gunAnimator.SetTrigger("Fire");
         }
@@ -70,13 +82,15 @@ public class SimpleShoot : MonoBehaviour
             source.PlayOneShot(noAmmo);
         }
     }
-    
 
 
     //This function creates the bullet behavior
     void Shoot()
     {
-        source.PlayOneShot(shootSound);
+        magazine.bulletsCount--;
+
+        source.PlayOneShot(fireSound);
+
         if (muzzleFlashPrefab)
         {
             //Create the muzzle flash
@@ -86,14 +100,39 @@ public class SimpleShoot : MonoBehaviour
             //Destroy the muzzle flash effect
             Destroy(tempFlash, destroyTimer);
         }
-
         //cancels if there's no bullet prefeb
         if (!bulletPrefab)
         { return; }
 
         // Create a bullet and add force on it in direction of the barrel
         Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        
+        float x = Random.Range(-spread, spread);
+        float y = Random.Range(-spread, spread);
+        
+        Vector3 direction = barrelLocation.transform.forward + new Vector3(x, y, 0);
+        
+        if (Physics.Raycast(barrelLocation.transform.position, direction, out rayHit, range, whatIsEnemy))
+        {
+            if (rayHit.collider.CompareTag("Enemy"))
+            {
+                rayHit.collider.gameObject.GetComponent<Demon>().health.TakeDamage(damage);
+            }
+            else if (rayHit.collider.CompareTag("TargetPractice"))
+            {
+                rayHit.collider.gameObject.GetComponent<PracticeTargetDemon>().health.TakeDamage(damage);
+            }
+            else
+            {
+                return;
+            }
+        }
 
+    }
+
+    public void PlaySound()
+    {
+        source.PlayOneShot(fireSound);
     }
 
     //This function creates a casing at the ejection slot

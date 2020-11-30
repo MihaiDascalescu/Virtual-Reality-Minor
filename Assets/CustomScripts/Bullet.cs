@@ -1,19 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using StateMachineScripts;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    private int destroyTimer = 5;
+   
     // Update is called once per frame
     void Update()
     {
-        Invoke(nameof(DestroyObject), 2.0f);
+        destroyTimer--;
+        if (destroyTimer == 0)
+        {
+            DestroyObject();
+        }
     }
 
     void DestroyObject()

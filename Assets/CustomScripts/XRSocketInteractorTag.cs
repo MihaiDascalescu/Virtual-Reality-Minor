@@ -11,5 +11,9 @@ public class XRSocketInteractorTag : XRSocketInteractor
     {
         return base.CanSelect(interactable) && interactable.CompareTag(targetTag);
     }
-    
+
+    protected override void OnSelectEnter(XRBaseInteractable interactable)
+    {
+        base.OnSelectEnter(interactable);
+    }
 }

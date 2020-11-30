@@ -10,6 +10,7 @@ TagManager:
   - FinalHandle
   - FxTemporaire
   - WalkPoint
+  - TargetPractice
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - WalkPoints
   - GunInteractable
   - EnemyTest
-  - 
+  - AmmoBarrels
   - 
   - 
   - 

@@ -21,13 +21,45 @@
   <component name="ChangeListManager">
     <list default="true" id="765d0cc8-19bc-41cf-b9a9-3fc147aedbef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Virtual-Reality-Minor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AI Components/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AI Components/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomScripts/AttackPlayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomScripts/AttackPlayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomScripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomScripts/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/CustomScripts/EnemyAIStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomScripts/EnemyAIStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomScripts/EnemySimpleAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomScripts/EnemySimpleAI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomScripts/Patrol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomScripts/Patrol.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/CustomScripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomScripts/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Demon/DemonController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Demon/DemonController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Demon/demonMesh@Zombie Attack.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Demon/demonMesh@Zombie Attack.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UnlitTransparentGreen.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UnlitTransparentGreen.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Animations/M1911 Handgun Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Animations/M1911 Handgun Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Effects/MuzzleFlash.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Effects/MuzzleFlash.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Materials/45ACP_Bullet_Silver.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Materials/45ACP_Bullet_Silver.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Materials/M1911 Handgun_Black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Materials/M1911 Handgun_Black.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Materials/M1911 Handgun_Steel.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Materials/M1911 Handgun_Steel.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Materials/M1911 Magazine_Black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Materials/M1911 Magazine_Black.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Materials/M1911 Magazine_Steel.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/Materials/M1911 Magazine_Steel.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/_Prefabs/45ACP Bullet_Head.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/_Prefabs/45ACP Bullet_Head.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Global Volume Profile 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Global Volume Profile 2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Lightmap-0_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelDesignTest1Scene/Lightmap-0_comp_light.exr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TheoAssets/Box/Mat_Crate.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TheoAssets/Box/Mat_Crate.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/Box/Spike_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/Box/Spike_Mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/CliffExport/Cliff_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/CliffExport/Cliff_Mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/NewRocks/RockSharp/rocktest_lambert1_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/NewRocks/RockSharp/rocktest_lambert1_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/NewRocks/SmallRocks/NewSmallRocks_lambert1_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/NewRocks/SmallRocks/NewSmallRocks_lambert1_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/Sand/Sand_normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/Sand/Sand_normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/table/tabletest_lambert1_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TheoAssets/NewTheoAssets/table/tabletest_lambert1_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TheoAssets/Tree1/Mat_Tree.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TheoAssets/Tree1/Mat_Tree.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/XRPackageSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/XRPackageSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,22 +70,61 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/PistolAnimations/DesertEagle2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StateMachineScripts/BaseState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EE47BE73-F7EF-409C-A5E5-CE4B121745B7/0f/2848eeb5/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StateMachineScripts/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StateMachineScripts/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/EnemyAIStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.3.1/Runtime/Volume/Volume.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/EnemySimpleAI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/ContinousMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/torch/scripts/Torchelight.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/torch/scene/script/TorchSlider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../PatrolTest/PatrolTest/Assets/TargetDetectorSoundFX.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/AI Components/TargetDetector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/EnemyChaseState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/BoxDestroy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StateMachineScripts/ChaseState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.polybrush@1.0.2/Editor/Brush Modes/BrushModeTexture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AI Components/Health.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Interaction/Interactors/XRRayInteractor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/AmmoBarrel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AI Components/Chase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Interaction/Controllers/XRController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Interaction/Interactors/XRSocketInteractor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../TestVR4URP/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Runtime/UniversalRenderPipeline.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/EnemyAnimations.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AI Components/Attack.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AI Components/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../Unity/2019.4.9f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Layout/CanvasScaler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StateMachineScripts/GameSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PistolAnimations/DesertEagle2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Interaction/Interactables/XRGrabInteractable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AI Components/TargetDetector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../Unity/2019.4.9f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EE47BE73-F7EF-409C-A5E5-CE4B121745B7/9b/cc378163/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StateMachineScripts/Demon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EE47BE73-F7EF-409C-A5E5-CE4B121745B7/2c/8d1026fe/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/1f/d780bc24/Action.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/PressableButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../PatrolTest/PatrolTest/Assets/TargetDetectorSoundFX.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/DemonSpawnerTargetPractice.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/049BE2AF-E36F-487E-B06E-F49D51A0BAB6/9e/ece3ae29/Animator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StateMachineScripts/PracticeTargetDemon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/XRSocketInteractorTag.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/TwoHandGrabInteractable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Locomotion/LocomotionSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StateMachineScripts/WanderState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/LocomotionController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/Magazine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StateMachineScripts/IdleState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../TestVR4URP/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Runtime/UniversalRenderPipeline.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/HandPresence.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Locomotion/Teleportation/TeleportationProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Locomotion/SnapTurn/SnapTurnProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/EnemyIdleState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CustomScripts/GunSystem.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -67,18 +138,34 @@
         <option value="$PROJECT_DIR$/Assets/EnemyAIStateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/XROffsetGrabInteractable.cs" />
         <option value="$PROJECT_DIR$/Assets/Magazine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/OnTargetReached.cs" />
         <option value="$PROJECT_DIR$/Assets/XRSocketInteractorTag.cs" />
         <option value="$PROJECT_DIR$/Assets/AI Components/TargetDetector.cs" />
         <option value="$PROJECT_DIR$/Assets/CustomScripts/Patrol.cs" />
-        <option value="$PROJECT_DIR$/Assets/CustomScripts/EnemyAIStateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/AI Components/Chase.cs" />
         <option value="$PROJECT_DIR$/Assets/AI Components/Attack.cs" />
         <option value="$PROJECT_DIR$/Assets/AI Components/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/AI Components/Health.cs" />
         <option value="$PROJECT_DIR$/Assets/CustomScripts/EnemySimpleAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/EnemyChaseState.cs" />
+        <option value="$PROJECT_DIR$/Assets/EnemyIdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/StateMachineScripts/BaseState.cs" />
+        <option value="$PROJECT_DIR$/Assets/CustomScripts/EnemyAIStateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/StateMachineScripts/GameSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/StateMachineScripts/StateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/StateMachineScripts/ChaseState.cs" />
+        <option value="$PROJECT_DIR$/Assets/StateMachineScripts/AttackState.cs" />
+        <option value="$PROJECT_DIR$/Assets/CustomScripts/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/StateMachineScripts/WanderState.cs" />
         <option value="$PROJECT_DIR$/Assets/CustomScripts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/CustomScripts/BoxDestroy.cs" />
+        <option value="$PROJECT_DIR$/Assets/StateMachineScripts/IdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/CustomScripts/AmmoBarrel.cs" />
+        <option value="$PROJECT_DIR$/Assets/CustomScripts/PressableButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/AI Components/Health.cs" />
+        <option value="$PROJECT_DIR$/Assets/StateMachineScripts/Demon.cs" />
+        <option value="$PROJECT_DIR$/Assets/StateMachineScripts/PracticeTargetDemon.cs" />
+        <option value="$PROJECT_DIR$/Assets/CustomScripts/DemonSpawnerTargetPractice.cs" />
       </list>
     </option>
   </component>
@@ -89,6 +176,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -101,10 +190,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="9220">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="9220" />
       <method v="2" />
     </configuration>
   </component>
@@ -125,7 +214,10 @@
       <workItem from="1605012815774" duration="4439000" />
       <workItem from="1605096787452" duration="5777000" />
       <workItem from="1605287098335" duration="2322000" />
-      <workItem from="1605620418840" duration="6950000" />
+      <workItem from="1605620418840" duration="8395000" />
+      <workItem from="1606126363928" duration="6565000" />
+      <workItem from="1606214556375" duration="26257000" />
+      <workItem from="1606395235681" duration="30886000" />
     </task>
     <servers />
   </component>
@@ -150,6 +242,74 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="411" height="464" key="DebuggerActiveHint" timestamp="1606313858687">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="411" height="464" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1606313858687" />
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.2.center" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.2.left" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.2.right" timestamp="1606672217129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217129" />
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom" timestamp="1606672217130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217130" />
+    <state width="1877" height="375" key="GridCell.Tab.3.center" timestamp="1606672217130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217130" />
+    <state width="1877" height="375" key="GridCell.Tab.3.left" timestamp="1606672217130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217130" />
+    <state width="1877" height="375" key="GridCell.Tab.3.right" timestamp="1606672217130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606672217130" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1603385068764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -158,9 +318,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605622873066" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605621154243">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1606477453093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605621154243" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606477453093" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606679728674">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606679728674" />
   </component>
 </project>

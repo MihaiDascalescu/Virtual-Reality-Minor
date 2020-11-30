@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 2413f8f2de7736941a36575471d82437
 ModelImporter:
-  serializedVersion: 19300
+  serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
@@ -59,10 +59,19 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.015831135
+        functionName: AttackStart
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: fd0e4753ac8dbf749bf1a77fc35892be,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.42657343
         functionName: AttackEnd
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: fd0e4753ac8dbf749bf1a77fc35892be,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -82,6 +91,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1

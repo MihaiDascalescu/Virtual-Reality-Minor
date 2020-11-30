@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        gameObject.SetActive(false);
+        Debug.Log("YOU DIED");
     }
 
     public bool IsPlayerDead()

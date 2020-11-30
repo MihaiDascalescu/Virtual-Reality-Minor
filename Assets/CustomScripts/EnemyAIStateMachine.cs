@@ -12,7 +12,7 @@ public class EnemyAIStateMachine : MonoBehaviour
 {
     public NavMeshAgent agent;
 
-    public Transform player;
+    public Player player;
 
     public int health;
 
@@ -36,13 +36,16 @@ public class EnemyAIStateMachine : MonoBehaviour
     
     private int destPoint;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         GotoNextPoint();
-        
+        player = FindObjectOfType<Player>();
+
     }
 
     // Update is called once per frame
@@ -50,7 +53,7 @@ public class EnemyAIStateMachine : MonoBehaviour
     {
         isPlayerInSightRange = Physics.CheckSphere(position: transform.position, radius: sightRange, layerMask: whatIsPlayer);
         isPlayerInAttackRange = Physics.CheckSphere(position: transform.position, radius: attackRange, layerMask: whatIsPlayer);
-        // (!player.gameObject.GetComponent<Player>().IsPlayerDead())
+        if(!player.IsPlayerDead())
         
             if (!animator.GetBool(name: "isHit"))
             {
@@ -119,14 +122,14 @@ public class EnemyAIStateMachine : MonoBehaviour
     }
     public void Chase()
     {
-        agent.SetDestination(player.position);
+        agent.SetDestination(player.transform.position);
     }
 
     public void Attack()
     {
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
+        transform.LookAt(player.transform);
         if (!alreadyAttacked)
         {
             alreadyAttacked = true;
@@ -155,7 +158,7 @@ public class EnemyAIStateMachine : MonoBehaviour
     }
     private void DestroyEnemy()
     {
-        Destroy(gameObject);
+        Destroy(gameObject,5.0f);
     }
     private void DisableOnHit()
     {
@@ -166,7 +169,7 @@ public class EnemyAIStateMachine : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRange, whatIsPlayer))
         {
-           // player.gameObject.GetComponent<Player>().OnHit(2);
+            //player.gameObject.GetComponent<Player>().OnHit(2);
         }
         else
         {

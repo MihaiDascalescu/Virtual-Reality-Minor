@@ -15,11 +15,13 @@
           <e p="TargetDetector.cs" t="Include" />
         </e>
         <e p="CustomScripts" t="Include">
-          <e p="AttackPlayer.cs" t="Include" />
+          <e p="AmmoBarrel.cs" t="Include" />
+          <e p="BoxDestroy.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
           <e p="Climber.cs" t="Include" />
           <e p="ClimbInteractable.cs" t="Include" />
           <e p="ContinousMovement.cs" t="Include" />
+          <e p="DemonSpawnerTargetPractice.cs" t="Include" />
           <e p="EnemyAIStateMachine.cs" t="Include" />
           <e p="EnemySimpleAI.cs" t="Include" />
           <e p="FollowToTheSide.cs" t="Include" />
@@ -31,10 +33,14 @@
           <e p="OnTargetReached.cs" t="Include" />
           <e p="Patrol.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="PressableButton.cs" t="Include" />
           <e p="TwoHandGrabInteractable.cs" t="Include" />
           <e p="XROffsetGrabInteractable.cs" t="Include" />
           <e p="XRSocketInteractorTag.cs" t="Include" />
         </e>
+        <e p="EnemyAnimations.cs" t="Include" />
+        <e p="EnemyChaseState.cs" t="Include" />
+        <e p="EnemyIdleState.cs" t="Include" />
         <e p="JMO Assets" t="Include">
           <e p="Cartoon FX Easy Editor" t="Include">
             <e p="CartoonFX Easy Editor Readme.txt" t="Include" />
@@ -138,6 +144,45 @@
           <e p="LightSaber.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="XRInput.cs" t="Include" />
+        </e>
+        <e p="StateMachineScripts" t="Include">
+          <e p="AttackState.cs" t="Include" />
+          <e p="BaseState.cs" t="Include" />
+          <e p="ChaseState.cs" t="Include" />
+          <e p="Demon.cs" t="Include" />
+          <e p="GameSettings.cs" t="Include" />
+          <e p="IdleState.cs" t="Include" />
+          <e p="PracticeTargetDemon.cs" t="Include" />
+          <e p="StateMachine.cs" t="Include" />
+          <e p="WanderState.cs" t="Include" />
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
         </e>
         <e p="torch" t="Include">
           <e p="readme.txt" t="Include" />

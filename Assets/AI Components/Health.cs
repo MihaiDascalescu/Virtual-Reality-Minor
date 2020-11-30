@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public event Action<float> HealthChanged;
+    public event Action<int> HealthChanged;
     public event Action Died;
 
-    public float CurrentHealth
+    public int CurrentHealth
     {
         get => currentHealth;
         set
@@ -29,16 +29,45 @@ public class Health : MonoBehaviour
         }
     }
 
-    public float MaxHealth => maxHealth;
+    public int MaxHealth => maxHealth;
     
-    [SerializeField] private float maxHealth;
+    [SerializeField] private int maxHealth;
 
-    public float currentHealth;
+    public int currentHealth;
     
     private void Start()
     {
         // Set the property to the max health. This will call the HealthChanged event to update UI for example.
         // This happens on start so that everyone has a chance to register to the event onEnable or on awake first, otherwise there will be no listeners :)
         CurrentHealth = maxHealth;
+    }
+
+    private void Update()
+    {
+        DestroyIfDead();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        HealthChanged?.Invoke(damage);
+    }
+
+    private bool IsDead()
+    {
+        return currentHealth <= 0;
+    }
+
+    public void SetHealthToFull()
+    {
+        currentHealth = maxHealth;
+    }
+
+    public void DestroyIfDead()
+    {
+        if (IsDead())
+        {
+            Died?.Invoke();
+        }
     }
 }
