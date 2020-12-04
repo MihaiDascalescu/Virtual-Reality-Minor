@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BoxDestroy : MonoBehaviour
 {
@@ -19,6 +20,14 @@ public class BoxDestroy : MonoBehaviour
 
     [SerializeField] private string rightHand,leftHand;
 
+    [SerializeField] private GameObject magazinePrefab;
+
+    [SerializeField] private bool dropMagazine;
+    
+    private AudioSource source;
+
+    [SerializeField] private UnityEvent playSound;
+
     private void Start()
     {
         cubesPivotDistance = cubeSize * cubesInRow * 0.5f;
@@ -28,15 +37,20 @@ public class BoxDestroy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == rightHand || other.gameObject.name == leftHand)
+        if (other.gameObject.name != rightHand && other.gameObject.name != leftHand) return;
+        if(dropMagazine)
         {
-            Explode();
+            Instantiate(magazinePrefab, transform.position, Quaternion.identity);
         }
+        playSound?.Invoke();
+        Explode();
     }
 
     private void Explode()
     {
+        
         gameObject.SetActive(false);
+        
         for (int x = 0; x < cubesInRow; x++)
         {
             for (int y = 0; y < cubesInRow; y++)
@@ -72,5 +86,6 @@ public class BoxDestroy : MonoBehaviour
         piece.GetComponent<Renderer>().material = pieceMaterial;
         piece.AddComponent<Rigidbody>();
         piece.GetComponent<Rigidbody>().mass = cubeSize;
+        Destroy(piece,3.0f);
     }
 }

@@ -15,7 +15,7 @@ namespace StateMachineScripts
         private static readonly int IsInAttackRange = Animator.StringToHash("isInAttackRange");
         private static readonly int IsDead = Animator.StringToHash("isDead");
         
-        private static readonly int Hit = Animator.StringToHash("isHit");
+        public static readonly int Hit = Animator.StringToHash("isHit");
         public Transform Target { get; private set; }
         public StateMachine StateMachine => GetComponent<StateMachine>();
 
@@ -32,6 +32,9 @@ namespace StateMachineScripts
         public Health health;
         
         public Player player;
+         
+
+      
         
 
         private void Awake()
@@ -39,6 +42,7 @@ namespace StateMachineScripts
             animator = GetComponent<Animator>();
             agent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
+           
         }
 
         private void OnEnable()

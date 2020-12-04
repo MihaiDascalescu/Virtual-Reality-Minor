@@ -11,7 +11,7 @@ public class PressableButton : XRBaseInteractable
     private float previousHandHeight = 0.0f;
     private XRBaseInteractor hoverInteractor;
     private bool previousPress = false;
-    public UnityEvent onPress = null;
+    [SerializeField]private UnityEvent onPress = null;
     
     protected override void Awake()
     {

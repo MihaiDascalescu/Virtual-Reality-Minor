@@ -20,11 +20,15 @@ namespace StateMachineScripts
 
         public override Type Tick()
         {
+            if (demon.animator.GetBool("isHit"))
+            {
+                return null;
+            }
             if (demon.Target == null)
             {
                 return typeof(WanderState);
             }
-
+            
             transform.LookAt(demon.Target);
             var position = demon.Target.transform.position;
             demon.agent.SetDestination(position);

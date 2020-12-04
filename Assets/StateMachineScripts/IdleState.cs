@@ -1,13 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 namespace StateMachineScripts
 {
     public class IdleState : BaseState
     {
         private PracticeTargetDemon practiceTargetDemon;
-        // Start is called before the first frame update
         
-
         public IdleState(PracticeTargetDemon practiceTargetDemon)
         {
             this.practiceTargetDemon = practiceTargetDemon;

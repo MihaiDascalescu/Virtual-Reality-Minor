@@ -46,6 +46,5 @@ public class Climber : MonoBehaviour
         {
             characterController.SimpleMove(Vector3.up);
         }
-        
     }
 }

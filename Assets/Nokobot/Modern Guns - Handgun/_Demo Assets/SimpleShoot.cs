@@ -122,6 +122,10 @@ public class SimpleShoot : MonoBehaviour
             {
                 rayHit.collider.gameObject.GetComponent<PracticeTargetDemon>().health.TakeDamage(damage);
             }
+            else if (rayHit.collider.CompareTag("MovableTarget"))
+            {
+                rayHit.collider.gameObject.GetComponent<MovableTarget>().health.TakeDamage(damage);
+            }
             else
             {
                 return;

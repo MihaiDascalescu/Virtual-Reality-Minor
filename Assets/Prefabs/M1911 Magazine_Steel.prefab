@@ -230,4 +230,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347601cbf5874ac479ce0795e3da67f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletsCount: 8
+  bulletsCount: 16

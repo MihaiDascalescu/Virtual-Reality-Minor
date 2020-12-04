@@ -7,7 +7,7 @@ using UnityEngine.XR;
 
 public class DesertEagle2 : MonoBehaviour
 {
-    private Animator animator;
+    /*private Animator animator;
     [SerializeField] private XRController rightHandController;
     [FormerlySerializedAs("Magazine")] [SerializeField] private GameObject magazine;
     [SerializeField] private GameObject cartridge;
@@ -167,13 +167,13 @@ public class DesertEagle2 : MonoBehaviour
             /*else if(hitInfo.transform.CompareTag("otherTag"))
             {
                 //Attack something else;
-            }*/
+            }
         }
 
         
             /*var newImpact = Instantiate(bulletImpact, hitInfo.point, hitInfo.collider.transform.rotation);
             newImpact.transform.forward = hitInfo.normal;
-            newImpact.transform.parent = hitInfo.transform;*/
+            newImpact.transform.parent = hitInfo.transform;
         
-    }
+    }*/
 }

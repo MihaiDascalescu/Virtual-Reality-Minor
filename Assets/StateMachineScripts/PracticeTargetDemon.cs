@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace StateMachineScripts
 {
@@ -14,7 +15,7 @@ namespace StateMachineScripts
         public Animator animator;
 
         public Health health;
-
+        
         public StateMachine StateMachine => GetComponent<StateMachine>();
 
         private void Awake()
@@ -28,16 +29,16 @@ namespace StateMachineScripts
             health.HealthChanged += OnHealthChanged;
             health.Died += OnDead;
         }
-
+        
+        private void OnDisable()
+        {
+            health.HealthChanged -= OnHealthChanged;
+            health.Died -= OnDead;
+        }
         private void OnDead()
         {
             animator.SetBool(IsDead,true);
             StartCoroutine(IfIsDead());
-        }
-
-        private void OnDisable()
-        {
-            health.HealthChanged -= OnHealthChanged;
         }
 
         private void Start()
@@ -56,7 +57,7 @@ namespace StateMachineScripts
         {
             var states = new Dictionary<Type, BaseState>()
             {
-                {typeof(IdleState), new IdleState(this)}
+                {typeof(IdleState), new IdleState(this)},
             };
             GetComponent<StateMachine>().Init(typeof(IdleState), states);
         }
@@ -68,7 +69,7 @@ namespace StateMachineScripts
         private IEnumerator IsHit()
         {
             animator.SetBool(Hit,true);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1.0f);
             animator.SetBool(Hit,false);
         }
     }

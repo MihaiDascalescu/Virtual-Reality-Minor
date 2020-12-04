@@ -18,6 +18,7 @@
           <e p="AmmoBarrel.cs" t="Include" />
           <e p="BoxDestroy.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
+          <e p="ChangeButtonColor.cs" t="Include" />
           <e p="Climber.cs" t="Include" />
           <e p="ClimbInteractable.cs" t="Include" />
           <e p="ContinousMovement.cs" t="Include" />
@@ -34,6 +35,9 @@
           <e p="Patrol.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PressableButton.cs" t="Include" />
+          <e p="SceneChanger.cs" t="Include" />
+          <e p="ShotgunTwoBarrel.cs" t="Include" />
+          <e p="TwoHandedRifle.cs" t="Include" />
           <e p="TwoHandGrabInteractable.cs" t="Include" />
           <e p="XROffsetGrabInteractable.cs" t="Include" />
           <e p="XRSocketInteractorTag.cs" t="Include" />
@@ -145,6 +149,11 @@
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="XRInput.cs" t="Include" />
         </e>
+        <e p="Sound" t="Include">
+          <e p="PlayMagazineSound.cs" t="Include" />
+          <e p="SoundPlayer.cs" t="Include" />
+          <e p="SoundTimer.cs" t="Include" />
+        </e>
         <e p="StateMachineScripts" t="Include">
           <e p="AttackState.cs" t="Include" />
           <e p="BaseState.cs" t="Include" />
@@ -152,8 +161,10 @@
           <e p="Demon.cs" t="Include" />
           <e p="GameSettings.cs" t="Include" />
           <e p="IdleState.cs" t="Include" />
+          <e p="MovableTarget.cs" t="Include" />
           <e p="PracticeTargetDemon.cs" t="Include" />
           <e p="StateMachine.cs" t="Include" />
+          <e p="WalkAround.cs" t="Include" />
           <e p="WanderState.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

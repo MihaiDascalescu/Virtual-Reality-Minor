@@ -19,19 +19,27 @@ namespace StateMachineScripts
         private Vector3 direction;
         private int destPoint;
         private Demon demon;
-        private Transform transform;
+        private Transform demonTransform;
+        
 
         public WanderState(Demon demon)
         {
             this.demon = demon;
-            this.transform = demon.transform;
+            this.demonTransform = demon.transform;
         }
+
+       
 
         public override Type Tick()
         {
+            if (demon.animator.GetBool("isHit"))
+            {
+                return null;
+            }
             var chaseTarget = CheckForAggro();
             demon.animator.SetBool(IsLookingForEnemies,true);
             demon.animator.SetBool(IsInAttackRange,false);
+            
             
             if (chaseTarget != null)
             {
@@ -66,7 +74,7 @@ namespace StateMachineScripts
 
         private Transform CheckForAggro()
         {
-            var pos = transform.position;
+            var pos = demonTransform.position;
             return Physics.CheckSphere(pos, GameSettings.AggroRadius, demon.whatIsPlayer) ? demon.player.transform : null;
         }
     }
