@@ -8,9 +8,14 @@ namespace StateMachineScripts
 {
     public class ChaseState : BaseState
     {
+        private static readonly int IsInAttackRange = Animator.StringToHash("isInAttackRange");
+        private static readonly int IsLookingForEnemies = Animator.StringToHash("isLookingForEnemies");
+        private static readonly int IsHit = Animator.StringToHash("isHit");
         private Demon demon;
         private Transform transform;
         private float distance;
+        private static readonly int IsInRangedRange = Animator.StringToHash("IsInRangedRange");
+
 
         public ChaseState(Demon demon)
         {
@@ -20,7 +25,7 @@ namespace StateMachineScripts
 
         public override Type Tick()
         {
-            if (demon.animator.GetBool("isHit"))
+            if (demon.animator.GetBool(IsHit))
             {
                 return null;
             }
@@ -37,15 +42,20 @@ namespace StateMachineScripts
             if (distance <= GameSettings.AttackRange)
             {
                 demon.agent.isStopped = true;
-                demon.animator.SetBool("isInAttackRange",true);
-                demon.animator.SetBool("isLookingForEnemies",false);
+                demon.animator.SetBool(IsInAttackRange,true);
+                demon.animator.SetBool(IsLookingForEnemies,false);
                 return typeof(AttackState);
             }
-            else
+
+            if (distance <= GameSettings.RangedAttackRange)
             {
-                demon.agent.isStopped = false;
-                return typeof(ChaseState);
+                demon.agent.isStopped = true;
+                demon.animator.SetBool(IsInRangedRange,true);
+                demon.animator.SetBool(IsLookingForEnemies,false);
+                return typeof(ThrowState);
             }
+            demon.agent.isStopped = false;
+            return typeof(ChaseState);
 
             return null;
         }

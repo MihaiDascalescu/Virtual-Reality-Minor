@@ -13,14 +13,15 @@ namespace StateMachineScripts
         private static readonly int IsInAttackRange = Animator.StringToHash("isInAttackRange");
         private static readonly int IsLookingForEnemies = Animator.StringToHash("isLookingForEnemies");
         private readonly LayerMask layerMask = LayerMask.NameToLayer("Walls");
-        
+        private static readonly int IsHit = Animator.StringToHash("isHit");
 
         private Quaternion desiredRotation;
         private Vector3 direction;
         private int destPoint;
         private Demon demon;
         private Transform demonTransform;
-        
+        private static readonly int IsInRangedRange = Animator.StringToHash("isInRangedRange");
+
 
         public WanderState(Demon demon)
         {
@@ -32,13 +33,14 @@ namespace StateMachineScripts
 
         public override Type Tick()
         {
-            if (demon.animator.GetBool("isHit"))
+            if (demon.animator.GetBool(IsHit))
             {
                 return null;
             }
             var chaseTarget = CheckForAggro();
             demon.animator.SetBool(IsLookingForEnemies,true);
             demon.animator.SetBool(IsInAttackRange,false);
+            demon.animator.SetBool(IsInRangedRange,false);
             
             
             if (chaseTarget != null)
@@ -47,6 +49,12 @@ namespace StateMachineScripts
                 return typeof(ChaseState);
             }
 
+            if (demon.wasAttacked)
+            {
+                demon.SetTarget(demon.player.transform);
+                demon.wasAttacked = false;
+                return typeof(ChaseState);
+            }
             Patrol();
             return null;
         }
@@ -68,10 +76,6 @@ namespace StateMachineScripts
             // cycling to the start if necessary.
             destPoint = (destPoint + 1) % demon.walkpoints.Length;
         }
-        private Quaternion startingAngle = Quaternion.AngleAxis(-60, Vector3.up);
-        private Quaternion stepAngle = Quaternion.AngleAxis(5, Vector3.up);
-        
-
         private Transform CheckForAggro()
         {
             var pos = demonTransform.position;
@@ -79,23 +83,3 @@ namespace StateMachineScripts
         }
     }
 }
-/*RaycastHit hit;
-           var angle = transform.rotation * startingAngle;
-           var direction = angle * Vector3.forward;
-           
-           for (var i = 0; i < 24; i++)
-           {
-               if (Physics.Raycast(pos, direction, out hit, GameSettings.AggroRadius))
-               {
-                   var player = hit.collider.GetComponent<Player>();
-                   if (player != null)
-                   {
-                       Debug.Log("player found");
-                       Debug.DrawRay(pos, direction * hit.distance, Color.red);
-                       return player.transform;
-                   }
-                   else
-                   {
-                       Debug.DrawRay(pos, direction * hit.distance, Color.yellow);
-                   }
-               }*/

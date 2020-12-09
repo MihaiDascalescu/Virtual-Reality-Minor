@@ -43,7 +43,11 @@ namespace StateMachineScripts
                 demon.animator.SetBool(IsInAttackRange,true);
                 attackReadyTimer = TimeBetweenAttacks;
             }
-            
+
+            if (distance > GameSettings.AttackRange && distance < GameSettings.RangedAttackRange)
+            {
+                return typeof(ThrowState);
+            }
 
             return null;
         }

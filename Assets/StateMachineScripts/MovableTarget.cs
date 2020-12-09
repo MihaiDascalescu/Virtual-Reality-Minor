@@ -31,13 +31,13 @@ namespace StateMachineScripts
 
         private void OnEnable()
         {
-            health.HealthChanged += OnHealthChanged;
+            health.HealthNegativelyChanged += OnHealthNegativelyChanged;
             health.Died += OnDead;
         }
         
         private void OnDisable()
         {
-            health.HealthChanged -= OnHealthChanged;
+            health.HealthNegativelyChanged -= OnHealthNegativelyChanged;
             health.Died -= OnDead;
         }
         private void OnDead()
@@ -67,7 +67,7 @@ namespace StateMachineScripts
             GetComponent<StateMachine>().Init(typeof(WalkAround), states);
         }
         
-        private void OnHealthChanged(int damage)
+        private void OnHealthNegativelyChanged(int damage)
         {
             StartCoroutine(IsHit());
         }

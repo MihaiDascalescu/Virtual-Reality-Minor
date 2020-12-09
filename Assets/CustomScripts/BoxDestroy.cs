@@ -21,8 +21,10 @@ public class BoxDestroy : MonoBehaviour
     [SerializeField] private string rightHand,leftHand;
 
     [SerializeField] private GameObject magazinePrefab;
+    [SerializeField] private GameObject medKitPrefab;
 
     [SerializeField] private bool dropMagazine;
+    [SerializeField] private bool dropHealthKit;
     
     private AudioSource source;
 
@@ -41,6 +43,11 @@ public class BoxDestroy : MonoBehaviour
         if(dropMagazine)
         {
             Instantiate(magazinePrefab, transform.position, Quaternion.identity);
+        }
+
+        if (dropHealthKit)
+        {
+            Instantiate(medKitPrefab, transform.position, Quaternion.identity);
         }
         playSound?.Invoke();
         Explode();

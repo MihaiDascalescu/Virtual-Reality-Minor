@@ -21,6 +21,13 @@ namespace StateMachineScripts
 
         private bool alreadyAttacked;
 
+        private bool alreadyRangedAttack;
+
+        
+
+        [SerializeField]private GameObject demonRightHand;
+        private GameObject projectile;
+
         public GameObject[] walkpoints;
 
         public NavMeshAgent agent;
@@ -32,10 +39,8 @@ namespace StateMachineScripts
         public Health health;
         
         public Player player;
-         
-
-      
-        
+        private static readonly int IsInRangedRange = Animator.StringToHash("IsInRangedRange");
+        public bool wasAttacked = false;
 
         private void Awake()
         {
@@ -49,14 +54,14 @@ namespace StateMachineScripts
         {
             StateMachine.StateChanged += OnStateChanged;
             health.Died += OnDead;
-            health.HealthChanged += OnHealthChanged;
+            health.HealthNegativelyChanged += OnHealthNegativelyChanged;
         }
 
         private void OnDisable()
         {
             StateMachine.StateChanged -= OnStateChanged;
             health.Died -= OnDead;
-            health.HealthChanged += OnHealthChanged;
+            health.HealthNegativelyChanged += OnHealthNegativelyChanged;
         }
 
         private void Start()
@@ -70,7 +75,8 @@ namespace StateMachineScripts
             {
                 {typeof(WanderState), new WanderState(this)},
                 {typeof(ChaseState), new ChaseState(this)},
-                {typeof(AttackState), new AttackState(this)}
+                {typeof(AttackState), new AttackState(this)},
+                {typeof(ThrowState), new ThrowState(this)}
             };
             GetComponent<StateMachine>().Init(typeof(WanderState), states);
         }
@@ -90,6 +96,23 @@ namespace StateMachineScripts
                 StartCoroutine(ResetAttack());
             }
         }
+
+        public void ThrowProjectile()
+        {
+            transform.LookAt(Target.transform);
+            if (!alreadyRangedAttack)
+            {
+                alreadyRangedAttack = true;
+                StartCoroutine(ResetRangedAttack());
+            }
+        }
+
+        private IEnumerator ResetRangedAttack()
+        {
+            yield return new WaitForSeconds(GameSettings.RangedTimeBetweenAttacks);
+            alreadyRangedAttack = false;
+        }
+
         private IEnumerator ResetAttack()
         {
             yield return new WaitForSeconds(GameSettings.TimeBetweenAttacks);
@@ -119,6 +142,33 @@ namespace StateMachineScripts
             }
             animator.SetBool(IsInAttackRange, false);
         }
+        //Animation Events
+        public void FireProjectile()
+        {
+            transform.LookAt(Target);
+            var rb = projectile.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            projectile.transform.parent = null;
+            rb.AddForce((transform.forward - GameSettings.ProjectileOffset) * GameSettings.ShotPower ,ForceMode.Impulse);
+            rb.AddForce(transform.up * GameSettings.VerticalShotPower,ForceMode.Impulse);
+            agent.isStopped = false;
+        }
+
+        public void CreateProjectile()
+        {
+            agent.isStopped = true;
+            projectile = Instantiate(GameSettings.DemonProjectilePrefab, demonRightHand.transform.position, Quaternion.identity,transform);
+            var rb = projectile.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+            rb.useGravity = false;
+            if (animator.GetBool(IsInAttackRange))
+            {
+                Destroy(projectile);
+                animator.SetBool(IsInRangedRange,false);
+            }
+            Destroy(projectile, 5.0f);
+        }
 
         private void OnDead()
         {
@@ -126,9 +176,10 @@ namespace StateMachineScripts
             Destroy(gameObject,2.0f);
         }
 
-        private void OnHealthChanged(int damage)
+        private void OnHealthNegativelyChanged(int damage)
         {
             StartCoroutine(IsHit());
+            wasAttacked = true;
         }
 
         private IEnumerator IsHit()

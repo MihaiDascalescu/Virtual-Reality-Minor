@@ -16,9 +16,22 @@ namespace StateMachineScripts
         [SerializeField] private float attackRange = 5.0f;
         public static float AttackRange => Instance.attackRange;
 
+        [SerializeField] private float rangedAttackRange = 10.0f;
+        public static float RangedAttackRange => Instance.rangedAttackRange;
+
+        [SerializeField] private float rangedTimeBetweenAttacks;
+        public static float RangedTimeBetweenAttacks => Instance.rangedTimeBetweenAttacks;
+
+        [SerializeField] private float shotPower;
+        public static float ShotPower => Instance.shotPower;
+        [SerializeField] private float verticalShotPower;
+        public static float VerticalShotPower => Instance.verticalShotPower;
+        [SerializeField] private Vector3 projectileOffset;
+        public static Vector3 ProjectileOffset => Instance.projectileOffset;
+
         [SerializeField] private GameObject demonProjectilePrefab;
-        public static GameObject DroneProjectilePrefab => Instance.demonProjectilePrefab;
-        
+        public static GameObject DemonProjectilePrefab => Instance.demonProjectilePrefab;
+
         [SerializeField] private float timeBetweenAttacks;
         public static float TimeBetweenAttacks => Instance.timeBetweenAttacks;
 

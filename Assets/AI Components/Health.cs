@@ -6,7 +6,9 @@ using UnityEngine.Serialization;
 
 public class Health : MonoBehaviour
 {
-    public event Action<int> HealthChanged;
+    public event Action<int> HealthNegativelyChanged;
+
+    public event Action<int> HealthPositivelyChanged;
     public event Action Died;
 
     private SoundPlayer soundPlayer;
@@ -26,7 +28,7 @@ public class Health : MonoBehaviour
 
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
             
-            HealthChanged?.Invoke(currentHealth);
+            
 
             if (currentHealth == 0)
             {
@@ -57,9 +59,15 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        HealthChanged?.Invoke(damage);
+        HealthNegativelyChanged?.Invoke(damage);
         soundPlayer.PlaySoundOneShot(hurtSound);
-        soundPlayer.PlaySoundOneShot(bulletImpactSound);
+        //soundPlayer.PlaySoundOneShot(bulletImpactSound);
+    }
+
+    public void HealDamage(int healAmount)
+    {
+        currentHealth += healAmount;
+        HealthPositivelyChanged?.Invoke(healAmount);
     }
 
     private bool IsDead()

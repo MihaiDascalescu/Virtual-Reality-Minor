@@ -31,10 +31,12 @@
           <e p="HandPresence.cs" t="Include" />
           <e p="LocomotionController.cs" t="Include" />
           <e p="Magazine.cs" t="Include" />
+          <e p="Medkit.cs" t="Include" />
           <e p="OnTargetReached.cs" t="Include" />
           <e p="Patrol.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PressableButton.cs" t="Include" />
+          <e p="Projectile.cs" t="Include" />
           <e p="SceneChanger.cs" t="Include" />
           <e p="ShotgunTwoBarrel.cs" t="Include" />
           <e p="TwoHandedRifle.cs" t="Include" />
@@ -164,6 +166,7 @@
           <e p="MovableTarget.cs" t="Include" />
           <e p="PracticeTargetDemon.cs" t="Include" />
           <e p="StateMachine.cs" t="Include" />
+          <e p="ThrowState.cs" t="Include" />
           <e p="WalkAround.cs" t="Include" />
           <e p="WanderState.cs" t="Include" />
         </e>
