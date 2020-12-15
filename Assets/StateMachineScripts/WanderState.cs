@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using StateMachineScripts;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 namespace StateMachineScripts
@@ -21,18 +22,25 @@ namespace StateMachineScripts
         private Demon demon;
         private Transform demonTransform;
         private static readonly int IsInRangedRange = Animator.StringToHash("isInRangedRange");
+        
 
-
-        public WanderState(Demon demon)
+       /* public WanderState(Demon demon)
         {
             this.demon = demon;
             this.demonTransform = demon.transform;
+        }*/
+
+        public WanderState(MonoBehaviour behaviour)
+        {
+            this.demon = (Demon) behaviour;
+            this.demon.animator = behaviour.GetComponent<Animator>();
+            this.demon.agent = behaviour.GetComponent<NavMeshAgent>();
+            this.demonTransform = behaviour.transform;
         }
 
-       
-
-        public override Type Tick()
+       public override Type Tick()
         {
+            
             if (demon.animator.GetBool(IsHit))
             {
                 return null;
@@ -49,6 +57,7 @@ namespace StateMachineScripts
                 return typeof(ChaseState);
             }
 
+            
             if (demon.wasAttacked)
             {
                 demon.SetTarget(demon.player.transform);

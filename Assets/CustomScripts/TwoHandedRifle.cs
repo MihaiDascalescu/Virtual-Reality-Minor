@@ -30,7 +30,7 @@ public class TwoHandedRifle : MonoBehaviour
     [SerializeField] private LayerMask whatIsEnemy;
     [SerializeField] private float range;
     [SerializeField] private int damage;
-    
+    [SerializeField] private string[] hittableTags = {"Enemy", "TargetPractice", "MovableTarget"};
     void Start()
     {
         if (barrelLocation == null)
@@ -78,41 +78,23 @@ public class TwoHandedRifle : MonoBehaviour
         
         if (Physics.Raycast(barrelLocation.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
-            if (rayHit.collider.CompareTag("Enemy"))
+            foreach (string hittableTag in hittableTags)
             {
-                rayHit.collider.gameObject.GetComponent<Demon>().health.TakeDamage(damage);
-            }
-            else if (rayHit.collider.CompareTag("TargetPractice"))
-            {
-                rayHit.collider.gameObject.GetComponent<PracticeTargetDemon>().health.TakeDamage(damage);
-            }
-            else if (rayHit.collider.CompareTag("MovableTarget"))
-            {
-                rayHit.collider.gameObject.GetComponent<MovableTarget>().health.TakeDamage(damage);
-            }
-            else
-            {
-                return;
+                if (!rayHit.collider.CompareTag(hittableTag))
+                {
+                    continue;
+                }
+
+                Health health = rayHit.collider.GetComponent<Health>();
+
+                if (health == null)
+                {
+                    continue;
+                }
+
+                health.CurrentHealth -= damage;
             }
         }
 
-    }
-    //This function creates a casing at the ejection slot
-    void CasingRelease()
-    {
-        //Cancels function if ejection slot hasn't been set or there's no casing
-        /*if (!casingExitLocation || !casingPrefab)
-        { return; }
-
-        //Create the casing
-        GameObject tempCasing;
-        tempCasing = Instantiate(casingPrefab, casingExitLocation.position, casingExitLocation.rotation) as GameObject;
-        //Add force on casing to push it out
-        tempCasing.GetComponent<Rigidbody>().AddExplosionForce(Random.Range(ejectPower * 0.7f, ejectPower), (casingExitLocation.position - casingExitLocation.right * 0.3f - casingExitLocation.up * 0.6f), 1f);
-        //Add torque to make casing spin in random direction
-        tempCasing.GetComponent<Rigidbody>().AddTorque(new Vector3(0, Random.Range(100f, 500f), Random.Range(100f, 1000f)), ForceMode.Impulse);
-
-        //Destroy casing after X seconds
-        Destroy(tempCasing, destroyTimer);*/
     }
 }

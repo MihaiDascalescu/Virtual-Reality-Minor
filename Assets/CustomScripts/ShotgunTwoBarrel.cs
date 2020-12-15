@@ -48,6 +48,8 @@ public class ShotgunTwoBarrel : MonoBehaviour
     [SerializeField]private float reloadTime;
     private float bulletsLeft;
     
+    [SerializeField] private string[] hittableTags = {"Enemy", "TargetPractice", "MovableTarget"};
+    
     void Start()
     {
         if (barrelLocationOne == null)
@@ -113,89 +115,28 @@ public class ShotgunTwoBarrel : MonoBehaviour
         //RayCast
         if (Physics.Raycast(barrelLocationOne.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
-            if (rayHit.collider.CompareTag("Enemy"))
+            foreach (string hittableTag in hittableTags)
             {
-                rayHit.collider.gameObject.GetComponent<Demon>().health.TakeDamage(damage);
-            }
-            else if (rayHit.collider.CompareTag("TargetPractice"))
-            {
-                rayHit.collider.gameObject.GetComponent<PracticeTargetDemon>().health.TakeDamage(damage);
-            }
-            else if (rayHit.collider.CompareTag("MovableTarget"))
-            {
-                rayHit.collider.gameObject.GetComponent<MovableTarget>().health.TakeDamage(damage);
-            }
-            else
-            {
-                return;
+                if (!rayHit.collider.CompareTag(hittableTag))
+                {
+                    continue;
+                }
+
+                Health health = rayHit.collider.GetComponent<Health>();
+
+                if (health == null)
+                {
+                    continue;
+                }
+
+                health.CurrentHealth -= damage;
             }
         }
         bulletsLeft--;
     }
 
-   /* void ShootSecondBarrel()
-    {
-        if(barrelTwo && !barrelOne)
-        {
-            ChooseBarrel(barrelLocationTwo);
-            bulletsLeft--;
-            casingPrefabTwo.SetActive(false);
-            barrelTwo = false;
-        }
-    }*/
-    
-
-    private void ChooseBarrel(Transform barrelToUse)
-    {
-        source.PlayOneShot(fireSound);
-        
-        if (muzzleFlashPrefab)
-        {
-            //Create the muzzle flash
-            GameObject tempFlash;
-            tempFlash = Instantiate(muzzleFlashPrefab, barrelToUse.position, barrelToUse.rotation);
-
-            //Destroy the muzzle flash effect
-            Destroy(tempFlash, destroyTimer);
-        }
-        //cancels if there's no bullet prefeb
-        if (!bulletPrefab)
-        { return; }
-
-        // Create a bullet and add force on it in direction of the barrel
-        GameObject instantiatedBullet = Instantiate(bulletPrefab, barrelToUse.position, barrelToUse.rotation);
-        instantiatedBullet.GetComponent<Rigidbody>().AddForce(barrelToUse.forward * shotPower);
-        Destroy(instantiatedBullet, 1.0f);
-        
-        float x = Random.Range(-spread, spread);
-        float y = Random.Range(-spread, spread);
-        
-        Vector3 direction = barrelToUse.transform.forward + new Vector3(x, y, 0);
-        
-        if (Physics.Raycast(barrelToUse.transform.position, direction, out rayHit, range, whatIsEnemy))
-        {
-            if (rayHit.collider.CompareTag("Enemy"))
-            {
-                rayHit.collider.gameObject.GetComponent<Demon>().health.TakeDamage(damage);
-            }
-            else if (rayHit.collider.CompareTag("TargetPractice"))
-            {
-                rayHit.collider.gameObject.GetComponent<PracticeTargetDemon>().health.TakeDamage(damage);
-            }
-            else if (rayHit.collider.CompareTag("MovableTarget"))
-            {
-                rayHit.collider.gameObject.GetComponent<MovableTarget>().health.TakeDamage(damage);
-            }
-            else
-            {
-                return;
-            }
-        }
-
-    }
     private IEnumerator Reload()
     {
-        
         reloading = true;
         yield return  new WaitForSeconds(reloadTime);
         ReloadFinished();

@@ -228,12 +228,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &36829597 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8893034124414941145, guid: 43a284c021afcad459a160ff5b4a2dc0,
-    type: 3}
-  m_PrefabInstance: {fileID: 888727616}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &36829598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8893034124414941150, guid: 43a284c021afcad459a160ff5b4a2dc0,
@@ -1388,12 +1382,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputSource: 4
+  inputJumpSource: 0
   speed: 2
   gravity: -9.81
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
   additionalHeight: 0.2
+  checkForGroundOnJump: 1
+  jumpingForce: 0
 --- !u!114 &179222539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1437,6 +1434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa76ca9bd2e6bd419b185ebed648c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  processVolume: {fileID: 0}
+  vignetteIntensity: 0.1
+  screenChangeTimer: 0.5
 --- !u!114 &179222542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,7 +1452,6 @@ MonoBehaviour:
   hurtSound: {fileID: 0}
   bulletImpactSound: {fileID: 0}
   maxHealth: 10
-  currentHealth: 0
 --- !u!1 &180932251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,6 +3053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa76ca9bd2e6bd419b185ebed648c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  processVolume: {fileID: 0}
+  vignetteIntensity: 0.1
+  screenChangeTimer: 0.5
 --- !u!114 &332660126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3069,7 +3071,6 @@ MonoBehaviour:
   hurtSound: {fileID: 0}
   bulletImpactSound: {fileID: 0}
   maxHealth: 10
-  currentHealth: 0
 --- !u!1 &335096960 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 81246634493295029, guid: 35913c390fba52c4a99bd37f52506a6b,
@@ -4267,6 +4268,11 @@ MonoBehaviour:
   demonSpeed: 4
   aggroRadius: 3
   attackRange: 2.5
+  rangedAttackRange: 10
+  rangedTimeBetweenAttacks: 0
+  shotPower: 0
+  verticalShotPower: 0
+  projectileOffset: {x: 0, y: 0, z: 0}
   demonProjectilePrefab: {fileID: 0}
   timeBetweenAttacks: 1
 --- !u!4 &467045325
@@ -4461,37 +4467,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15999052, y: 0.16410524, z: 0.15952598}
   m_Center: {x: 0.0116204545, y: 0.08475742, z: 0.013201356}
---- !u!114 &511347755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511347749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 666e8ae5f7dfee14191c2d2b5968f895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 511347751}
-  player: {fileID: 0}
-  health: 10
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 512
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  whatIsWalkPoint:
-    serializedVersion: 2
-    m_Bits: 0
-  animator: {fileID: 511347750}
-  walkPoints:
-  - {fileID: 1591942219}
-  - {fileID: 1745429003}
-  timeBetweenAttacks: 1
-  sightRange: 4
-  attackRange: 1.5
 --- !u!1 &512817566
 GameObject:
   m_ObjectHideFlags: 0
@@ -44524,6 +44499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0e4753ac8dbf749bf1a77fc35892be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  demonRightHand: {fileID: 0}
   walkpoints:
   - {fileID: 1403192399}
   - {fileID: 1591942219}
@@ -44535,6 +44511,7 @@ MonoBehaviour:
     m_Bits: 524288
   health: {fileID: 0}
   player: {fileID: 0}
+  wasAttacked: 0
 --- !u!114 &1031343336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53812,7 +53789,6 @@ GameObject:
   - component: {fileID: 14132369142702205}
   - component: {fileID: 14132369142702204}
   - component: {fileID: 14132369142702203}
-  - component: {fileID: 14132369142702207}
   m_Layer: 15
   m_Name: DesertEagle
   m_TagString: Untagged
@@ -53877,7 +53853,7 @@ MonoBehaviour:
   m_OnActivate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14132369142702207}
+      - m_Target: {fileID: 0}
         m_MethodName: Shoot
         m_Mode: 1
         m_Arguments:
@@ -53953,28 +53929,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &14132369142702207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14132369142702201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa156948231da5c40a92b0b8e97c15bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightHandController: {fileID: 1259598781}
-  magazine: {fileID: 36829597}
-  cartridge: {fileID: 5252296640200075355, guid: 55715a4f9a6a99044b6d313667361f27,
-    type: 3}
-  cartridgeExit: {fileID: 1457123451}
-  magazinePosition: {fileID: 4520730312905295286}
-  barrelExit: {fileID: 46611140}
-  bulletImpact: {fileID: 3769559490054316686, guid: 7ccc3a98d4edc5c4a89e335c24ffc596,
-    type: 3}
-  rounds: 10
 --- !u!1 &81246634189799419
 GameObject:
   m_ObjectHideFlags: 0

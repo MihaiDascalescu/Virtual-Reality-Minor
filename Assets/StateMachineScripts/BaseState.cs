@@ -7,6 +7,8 @@ namespace StateMachineScripts
 {
     public abstract class BaseState
     {
+        public virtual void OnEnterState() {}
         public abstract Type Tick();
+        public virtual void OnExitState() {}
     }
 }

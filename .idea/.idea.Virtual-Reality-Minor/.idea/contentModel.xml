@@ -23,8 +23,6 @@
           <e p="ClimbInteractable.cs" t="Include" />
           <e p="ContinousMovement.cs" t="Include" />
           <e p="DemonSpawnerTargetPractice.cs" t="Include" />
-          <e p="EnemyAIStateMachine.cs" t="Include" />
-          <e p="EnemySimpleAI.cs" t="Include" />
           <e p="FollowToTheSide.cs" t="Include" />
           <e p="Gun.cs" t="Include" />
           <e p="GunSystem.cs" t="Include" />
@@ -32,6 +30,7 @@
           <e p="LocomotionController.cs" t="Include" />
           <e p="Magazine.cs" t="Include" />
           <e p="Medkit.cs" t="Include" />
+          <e p="MovementRecognizer.cs" t="Include" />
           <e p="OnTargetReached.cs" t="Include" />
           <e p="Patrol.cs" t="Include" />
           <e p="Player.cs" t="Include" />
@@ -141,9 +140,40 @@
             </e>
           </e>
         </e>
-        <e p="PistolAnimations" t="Include">
-          <e p="DesertEagle.cs" t="Include" />
-          <e p="DesertEagle2.cs" t="Include" />
+        <e p="PDollar" t="Include">
+          <e p="Resources" t="Include">
+            <e p="GestureSet" t="Include">
+              <e p="10-stylus-MEDIUM" t="Include">
+                <e p="10-stylus-medium-arrowhead-01.xml" t="Include" />
+                <e p="10-stylus-medium-asterisk-01.xml" t="Include" />
+                <e p="10-stylus-medium-D-01.xml" t="Include" />
+                <e p="10-stylus-medium-exclamation_point-01.xml" t="Include" />
+                <e p="10-stylus-medium-five_point_star-01.xml" t="Include" />
+                <e p="10-stylus-medium-H-01.xml" t="Include" />
+                <e p="10-stylus-medium-half_note-01.xml" t="Include" />
+                <e p="10-stylus-medium-I-01.xml" t="Include" />
+                <e p="10-stylus-medium-line-01.xml" t="Include" />
+                <e p="10-stylus-medium-N-01.xml" t="Include" />
+                <e p="10-stylus-medium-null-01.xml" t="Include" />
+                <e p="10-stylus-medium-P-01.xml" t="Include" />
+                <e p="10-stylus-medium-pitchfork-01.xml" t="Include" />
+                <e p="10-stylus-medium-six_point_star-01.xml" t="Include" />
+                <e p="10-stylus-medium-T-01.xml" t="Include" />
+                <e p="10-stylus-medium-X-01.xml" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Demo.cs" t="Include" />
+            <e p="PDollarGestureRecognizer" t="Include">
+              <e p="Geometry.cs" t="Include" />
+              <e p="Gesture.cs" t="Include" />
+              <e p="GestureIO.cs" t="Include" />
+              <e p="Point.cs" t="Include" />
+              <e p="PointCloudRecognizer.cs" t="Include" />
+              <e p="Result.cs" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Scripts" t="Include">
           <e p="InstantiateTriangles.cs" t="Include" />

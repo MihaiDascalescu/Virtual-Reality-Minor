@@ -7,11 +7,20 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField]private LayerMask playerLayer;
     [SerializeField] private int damage;
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == playerLayer)
+        if (other.GetComponent<Player>() == null)
         {
-            other.gameObject.GetComponent<Health>().TakeDamage(damage);
+            return;
         }
+
+        Health health = other.GetComponent<Health>();
+        if (health == null)
+        {
+            return;
+        }
+        
+        health.CurrentHealth -= damage;
     }
 }

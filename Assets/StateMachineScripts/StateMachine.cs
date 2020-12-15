@@ -55,7 +55,9 @@ namespace StateMachineScripts
 
         public void SwitchToNewState(Type nextState)
         {
+            CurrentState?.OnExitState();
             CurrentState = availableStates[nextState];
+            CurrentState?.OnEnterState();
             StateChanged?.Invoke(CurrentState);
             Debug.Log($"New state is {nextState}");
         }

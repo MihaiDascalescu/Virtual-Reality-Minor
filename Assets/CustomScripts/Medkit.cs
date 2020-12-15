@@ -5,21 +5,25 @@ using UnityEngine;
 
 public class Medkit : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    [SerializeField] private string rightHand;
-    [SerializeField] private string leftHand;
     [SerializeField] private int healAmount;
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name != rightHand && other.gameObject.name != leftHand) return;
-        HealPlayer(other);
-        Destroy(gameObject);
-    }
+        Player player = other.GetComponent<Player>();
 
-    private void HealPlayer(Collider player)
-    {
-        var health = player.gameObject.GetComponent<Health>();
-        health.HealDamage(healAmount);
+        if (player == null)
+        {
+            return;
+        }
+
+        Health health = other.GetComponent<Health>();
+
+        if (health == null)
+        {
+            return;
+        }
+
+        health.CurrentHealth += healAmount;
+        Destroy(gameObject);
     }
 }

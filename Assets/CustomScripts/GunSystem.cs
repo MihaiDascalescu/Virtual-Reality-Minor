@@ -54,6 +54,8 @@ public class GunSystem : MonoBehaviour
     public bool OnReload { get; set; } = false;
     public bool ActivatePanel { get; set; }
 
+    [SerializeField] private string[] hittableTags = {"Enemy", "TargetPractice", "MovableTarget"};
+    
     private void Awake()
     {
         bulletsLeft = magazineSize;
@@ -115,21 +117,21 @@ public class GunSystem : MonoBehaviour
         //RayCast
         if (Physics.Raycast(barrelLocation.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
-            if (rayHit.collider.CompareTag("Enemy"))
+            foreach (string hittableTag in hittableTags)
             {
-                rayHit.collider.gameObject.GetComponent<Demon>().health.TakeDamage(damage);
-            }
-            else if (rayHit.collider.CompareTag("TargetPractice"))
-            {
-                rayHit.collider.gameObject.GetComponent<PracticeTargetDemon>().health.TakeDamage(damage);
-            }
-            else if (rayHit.collider.CompareTag("MovableTarget"))
-            {
-                rayHit.collider.gameObject.GetComponent<MovableTarget>().health.TakeDamage(damage);
-            }
-            else
-            {
-                return;
+                if (!rayHit.collider.CompareTag(hittableTag))
+                {
+                    continue;
+                }
+
+                Health health = rayHit.collider.GetComponent<Health>();
+
+                if (health == null)
+                {
+                    continue;
+                }
+
+                health.CurrentHealth -= damage;
             }
         }
         bulletsLeft--;

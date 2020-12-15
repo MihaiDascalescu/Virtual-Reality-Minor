@@ -7,14 +7,13 @@ using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using FloatParameter = UnityEngine.Rendering.FloatParameter;
-using Vignette = UnityEngine.Rendering.PostProcessing.Vignette;
+using Vignette = UnityEngine.Rendering.Universal.Vignette;
 using ColorAdjustments = UnityEngine.Rendering.Universal.ColorAdjustments;
 using ColorParameter = UnityEngine.Rendering.ColorParameter;
 
 [RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
-
     private Health health;
     [SerializeField] private Volume processVolume;
     private bool isDead = false;
@@ -23,27 +22,36 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float vignetteIntensity = 0.1f;
     [SerializeField] private float screenChangeTimer = 0.5f;
-    
+
 
     private void Awake()
     {
         health = GetComponent<Health>();
-        colorAdjustments = (ColorAdjustments) processVolume.profile.components[5] ;
-        vignette = processVolume.GetComponent<Vignette>(); //processVolume.profile.components[4] ;
+
+        if (!processVolume.profile.TryGet(out vignette))
+        {
+            Debug.LogError("No Vignette :(");
+        }
+
+        if (!processVolume.profile.TryGet(out colorAdjustments))
+        {
+            Debug.LogError("No color adjustment :(");
+        }
+        
     }
 
     private void OnEnable()
     {
         health.Died += Die;
-        health.HealthNegativelyChanged += OnHealthNegativelyChanged;
-        health.HealthPositivelyChanged += OnHealthPositivelyChanged;
+        health.Damaged += OnDamaged;
+        health.Healed += OnHealed;
     }
 
     private void OnDisable()
     {
         health.Died -= Die;
-        health.HealthNegativelyChanged -= OnHealthNegativelyChanged;
-        health.HealthPositivelyChanged -= OnHealthPositivelyChanged;
+        health.Damaged -= OnDamaged;
+        health.Healed -= OnHealed;
     }
 
     public void Die()
@@ -51,17 +59,7 @@ public class Player : MonoBehaviour
         Debug.Log("YOU DIED");
     }
 
-    public bool IsPlayerDead()
-    {
-        if (health.currentHealth <= 0)
-        {
-            isDead = true;
-        }
-
-        return isDead;
-    }
-
-    private void OnHealthNegativelyChanged(int amount)
+    private void OnDamaged(int amount)
     {
         FloatParameter vignetteIncrease = new FloatParameter(vignetteIntensity,false);
         vignette.intensity.value += vignetteIncrease.value;
@@ -80,7 +78,7 @@ public class Player : MonoBehaviour
         colorAdjustments.colorFilter = new ColorParameter(Color.white);
     }
 
-    private void OnHealthPositivelyChanged(int amount)
+    private void OnHealed(int amount)
     {
           FloatParameter vignetteIncrease = new FloatParameter(vignetteIntensity,false);
           vignette.intensity.value -= vignetteIncrease.value;
@@ -88,7 +86,7 @@ public class Player : MonoBehaviour
           {
               vignetteIntensity = 0.4f;
           }
-
+    
           StartCoroutine(UpdateGreenScreenColor());
 
     }

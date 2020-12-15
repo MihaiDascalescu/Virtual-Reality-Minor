@@ -23,8 +23,6 @@ namespace StateMachineScripts
 
         private bool alreadyRangedAttack;
 
-        
-
         [SerializeField]private GameObject demonRightHand;
         private GameObject projectile;
 
@@ -54,14 +52,14 @@ namespace StateMachineScripts
         {
             StateMachine.StateChanged += OnStateChanged;
             health.Died += OnDead;
-            health.HealthNegativelyChanged += OnHealthNegativelyChanged;
+            health.Damaged += OnDamaged;
         }
 
         private void OnDisable()
         {
             StateMachine.StateChanged -= OnStateChanged;
             health.Died -= OnDead;
-            health.HealthNegativelyChanged += OnHealthNegativelyChanged;
+            health.Damaged += OnDamaged;
         }
 
         private void Start()
@@ -128,7 +126,8 @@ namespace StateMachineScripts
         {
             if (Physics.CheckSphere(transform.position, GameSettings.AttackRange, whatIsPlayer))
             {
-                Target.GetComponent<Player>().GetComponent<Health>().currentHealth -= 2;
+                // TODO: Safety checks -> what if there is no player or health component
+                Target.GetComponent<Player>().GetComponent<Health>().CurrentHealth -= 2;
                 return;
             }
             animator.SetBool(IsInAttackRange, false);
@@ -176,7 +175,7 @@ namespace StateMachineScripts
             Destroy(gameObject,2.0f);
         }
 
-        private void OnHealthNegativelyChanged(int damage)
+        private void OnDamaged(int damage)
         {
             StartCoroutine(IsHit());
             wasAttacked = true;

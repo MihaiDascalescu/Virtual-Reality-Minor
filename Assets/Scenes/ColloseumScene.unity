@@ -6156,7 +6156,6 @@ MonoBehaviour:
   hurtSound: {fileID: 0}
   bulletImpactSound: {fileID: 0}
   maxHealth: 10
-  currentHealth: 0
 --- !u!114 &933552478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6169,6 +6168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa76ca9bd2e6bd419b185ebed648c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  processVolume: {fileID: 0}
+  vignetteIntensity: 0.1
+  screenChangeTimer: 0.5
 --- !u!114 &933552479
 MonoBehaviour:
   m_ObjectHideFlags: 0

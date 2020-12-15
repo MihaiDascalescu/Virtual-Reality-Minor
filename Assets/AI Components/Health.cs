@@ -6,12 +6,11 @@ using UnityEngine.Serialization;
 
 public class Health : MonoBehaviour
 {
-    public event Action<int> HealthNegativelyChanged;
-
-    public event Action<int> HealthPositivelyChanged;
+    public event Action<int> Damaged;
+    public event Action<int> Healed;
     public event Action Died;
 
-    private SoundPlayer soundPlayer;
+    private SoundPlayer soundPlayer; // TODO: Remove me
 
     [FormerlySerializedAs("soundToPlay")] [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip bulletImpactSound;
@@ -26,9 +25,17 @@ public class Health : MonoBehaviour
                 return;
             }
 
+            int previousHealth = currentHealth;
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
-            
-            
+
+            if (previousHealth > currentHealth)
+            {
+                Damaged?.Invoke(currentHealth);
+            }
+            else if (previousHealth < currentHealth)
+            {
+                Healed?.Invoke(currentHealth);
+            }
 
             if (currentHealth == 0)
             {
@@ -41,7 +48,7 @@ public class Health : MonoBehaviour
     
     [SerializeField] private int maxHealth;
 
-    public int currentHealth;
+    private int currentHealth;
     
     private void Start()
     {
@@ -51,24 +58,25 @@ public class Health : MonoBehaviour
         soundPlayer = GetComponent<SoundPlayer>();
     }
 
-    private void Update()
-    {
-        DestroyIfDead();
-    }
-
+    // TODO: Remove me
+    /*
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        HealthNegativelyChanged?.Invoke(damage);
+        Damaged?.Invoke(damage);
         soundPlayer.PlaySoundOneShot(hurtSound);
         //soundPlayer.PlaySoundOneShot(bulletImpactSound);
     }
+    */
 
+    // TODO: Remove me
+    /*
     public void HealDamage(int healAmount)
     {
         currentHealth += healAmount;
-        HealthPositivelyChanged?.Invoke(healAmount);
+        Healed?.Invoke(healAmount);
     }
+    */
 
     private bool IsDead()
     {
@@ -77,9 +85,11 @@ public class Health : MonoBehaviour
 
     public void SetHealthToFull()
     {
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
     }
 
+    // TODO: Remove me and handle in whatever needs to be destroyed when the died event is called
+    /*
     public void DestroyIfDead()
     {
         if (IsDead())
@@ -87,4 +97,5 @@ public class Health : MonoBehaviour
             Died?.Invoke();
         }
     }
+    */
 }
