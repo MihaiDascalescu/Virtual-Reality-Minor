@@ -5,11 +5,11 @@ namespace StateMachineScripts
 {
     public class IdleState : BaseState
     {
-        private PracticeTargetDemon practiceTargetDemon;
+        private MonoBehaviour demon;
         
-        public IdleState(PracticeTargetDemon practiceTargetDemon)
+        public IdleState(MonoBehaviour demon)
         {
-            this.practiceTargetDemon = practiceTargetDemon;
+            this.demon = demon;
         }
         
         public override Type Tick()

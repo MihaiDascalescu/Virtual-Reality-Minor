@@ -16,6 +16,9 @@
         </e>
         <e p="CustomScripts" t="Include">
           <e p="AmmoBarrel.cs" t="Include" />
+          <e p="Boss.cs" t="Include" />
+          <e p="BossProjectile.cs" t="Include" />
+          <e p="BossProjectilePool.cs" t="Include" />
           <e p="BoxDestroy.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
           <e p="ChangeButtonColor.cs" t="Include" />
@@ -23,6 +26,7 @@
           <e p="ClimbInteractable.cs" t="Include" />
           <e p="ContinousMovement.cs" t="Include" />
           <e p="DemonSpawnerTargetPractice.cs" t="Include" />
+          <e p="FireProjectile.cs" t="Include" />
           <e p="FollowToTheSide.cs" t="Include" />
           <e p="Gun.cs" t="Include" />
           <e p="GunSystem.cs" t="Include" />

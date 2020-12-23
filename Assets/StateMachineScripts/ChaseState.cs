@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using StateMachineScripts;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace StateMachineScripts
 {
@@ -13,8 +12,6 @@ namespace StateMachineScripts
         private static readonly int IsLookingForEnemies = Animator.StringToHash("isLookingForEnemies");
         private static readonly int IsHit = Animator.StringToHash("isHit");
         private Demon demon;
-        private Animator animator;
-        private NavMeshAgent agent;
         private Transform transform;
         private float distance;
         private static readonly int IsInRangedRange = Animator.StringToHash("IsInRangedRange");
@@ -25,7 +22,6 @@ namespace StateMachineScripts
             this.demon = demon;
             this.transform = demon.transform;
         }
-       
 
         public override Type Tick()
         {

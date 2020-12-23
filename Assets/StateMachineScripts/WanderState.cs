@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using StateMachineScripts;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 namespace StateMachineScripts
@@ -24,19 +23,17 @@ namespace StateMachineScripts
         private static readonly int IsInRangedRange = Animator.StringToHash("isInRangedRange");
         
 
-       /* public WanderState(Demon demon)
+        public WanderState(Demon demon)
         {
             this.demon = demon;
             this.demonTransform = demon.transform;
-        }*/
-
-        public WanderState(MonoBehaviour behaviour)
-        {
-            this.demon = (Demon) behaviour;
-            this.demon.animator = behaviour.GetComponent<Animator>();
-            this.demon.agent = behaviour.GetComponent<NavMeshAgent>();
-            this.demonTransform = behaviour.transform;
         }
+
+       /* public WanderState(MonoBehaviour behaviour)
+        {
+            this.demon = behaviour;
+            this.animator = behaviour.GetComponent<Animator>()
+        }*/
 
        public override Type Tick()
         {

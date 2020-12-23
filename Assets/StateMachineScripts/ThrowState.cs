@@ -1,7 +1,6 @@
 ﻿using System;
 using Data.Util;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace StateMachineScripts
 {
@@ -15,18 +14,11 @@ namespace StateMachineScripts
         private static readonly int IsInRangedRange = Animator.StringToHash("IsInRangedRange");
 
 
-       /* public ThrowState(Demon demon)
+        public ThrowState(Demon demon)
         {
             this.demon = demon;
             this.transform = demon.transform;
-        } */
-        public ThrowState(MonoBehaviour behaviour)
-        {
-            this.demon = (Demon) behaviour;
-            this.demon.animator = behaviour.GetComponent<Animator>();
-            this.demon.agent = behaviour.GetComponent<NavMeshAgent>();
-            this.transform = behaviour.transform;
-        }
+        } 
         // Start is called before the first frame update
         
         public override Type Tick()
