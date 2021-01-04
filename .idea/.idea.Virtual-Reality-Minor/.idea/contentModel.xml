@@ -199,6 +199,7 @@
           <e p="IdleState.cs" t="Include" />
           <e p="MovableTarget.cs" t="Include" />
           <e p="PracticeTargetDemon.cs" t="Include" />
+          <e p="SpawnState.cs" t="Include" />
           <e p="StateMachine.cs" t="Include" />
           <e p="ThrowState.cs" t="Include" />
           <e p="WalkAround.cs" t="Include" />

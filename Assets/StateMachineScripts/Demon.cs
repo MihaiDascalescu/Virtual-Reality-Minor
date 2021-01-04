@@ -40,12 +40,18 @@ namespace StateMachineScripts
         private static readonly int IsInRangedRange = Animator.StringToHash("IsInRangedRange");
         public bool wasAttacked = false;
 
+        [SerializeField] private Boss boss;
+
+        [SerializeField] private bool isInstantiated;
+
         private void Awake()
         {
             animator = GetComponent<Animator>();
             agent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
-           
+            boss = FindObjectOfType<Boss>();
+            player = FindObjectOfType<Player>();
+            
         }
 
         private void OnEnable()
@@ -76,7 +82,15 @@ namespace StateMachineScripts
                 {typeof(AttackState), new AttackState(this)},
                 {typeof(ThrowState), new ThrowState(this)}
             };
-            GetComponent<StateMachine>().Init(typeof(WanderState), states);
+            if (!isInstantiated)
+            {
+                GetComponent<StateMachine>().Init(typeof(WanderState), states);
+            }
+            else
+            {
+                GetComponent<StateMachine>().Init(typeof(ChaseState), states);
+                SetTarget(player.transform);
+            }
         }
 
         public void SetTarget(Transform target)
@@ -172,6 +186,7 @@ namespace StateMachineScripts
         private void OnDead()
         {
             animator.SetBool(IsDead,true);
+            RemoveAfterDeath();
             Destroy(gameObject,2.0f);
         }
 
@@ -186,6 +201,16 @@ namespace StateMachineScripts
             animator.SetBool(Hit,true);
             yield return new WaitForSeconds(1);
             animator.SetBool(Hit,false);
+        }
+
+        private void RemoveAfterDeath()
+        {
+            if (!boss)
+            {
+                return;
+            }
+            
+            boss.demonAmount--;
         }
     }
 }

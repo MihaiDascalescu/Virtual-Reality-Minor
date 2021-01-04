@@ -19,6 +19,14 @@ public class Boss : MonoBehaviour
         
     public Player player;
 
+    public Transform[] demonSpawners;
+
+    public GameObject demonToSpawn;
+
+    public int demonAmount;
+    
+    
+
     [SerializeField] private Projectile projectile;
     private void Awake()
     {
@@ -36,9 +44,10 @@ public class Boss : MonoBehaviour
     {
         var states = new Dictionary<Type, BaseState>()
         {
-            {typeof(IdleState), new IdleState(this)}
+            //{typeof(IdleState),new IdleState(this)},
+            {typeof(SpawnState),new SpawnState(this)}
         };
-        GetComponent<StateMachine>().Init(typeof(IdleState), states);
+        GetComponent<StateMachine>().Init(typeof(SpawnState), states);
     }
     private void OnEnable()
     {
@@ -55,16 +64,21 @@ public class Boss : MonoBehaviour
 
     private void OnDead()
     {
-        throw new NotImplementedException();
+       // throw new NotImplementedException();
     }
 
     private void OnStateChanged(BaseState obj)
     {
-        throw new NotImplementedException();
+       // throw new NotImplementedException();
     }
     private void OnDamaged(int obj)
     {
-        throw new NotImplementedException();
+      //  throw new NotImplementedException();
+    }
+
+    public void SpawnEnemies(int spawnerIndex)
+    {
+        Instantiate(demonToSpawn,demonSpawners[spawnerIndex]);
     }
     
 }

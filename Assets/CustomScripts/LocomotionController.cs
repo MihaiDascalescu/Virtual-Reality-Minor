@@ -7,10 +7,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class LocomotionController : MonoBehaviour
 {
-    // Start is called before the first frame update
+   
     public XRController leftTeleportRay;
     public XRController rightTeleportRay;
     public InputHelpers.Button teleportActivationButton;
+   
     public float activationTreshold = 0.1f;
 
     public XRRayInteractor rightRay; 
@@ -18,12 +19,7 @@ public class LocomotionController : MonoBehaviour
     
     public bool EnableLeftTeleport { get; set; }= true;
     public bool EnableRightTeleport { get; set; }= true;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         Vector3 pos = new Vector3();
@@ -33,17 +29,18 @@ public class LocomotionController : MonoBehaviour
         if (leftTeleportRay)
         {
             bool isLeftInteractorHovering = leftRay.TryGetHitInfo(ref pos, ref norm, ref index, ref validTarget);
-            leftTeleportRay.gameObject.SetActive(EnableLeftTeleport && CheckIfActivated(leftTeleportRay) && !isLeftInteractorHovering);
+            leftTeleportRay.gameObject.SetActive(EnableLeftTeleport && CheckIfTeleportActivated(leftTeleportRay) && !isLeftInteractorHovering);
         }
 
         if (rightTeleportRay)
         {
             bool isRightInteractorHovering = rightRay.TryGetHitInfo(ref pos, ref norm, ref index, ref validTarget);
-            rightTeleportRay.gameObject.SetActive(EnableRightTeleport && CheckIfActivated(rightTeleportRay) && !isRightInteractorHovering);
+            rightTeleportRay.gameObject.SetActive(EnableRightTeleport && CheckIfTeleportActivated(rightTeleportRay) && !isRightInteractorHovering);
         }
+
     }
 
-    public bool CheckIfActivated(XRController controller)
+    public bool CheckIfTeleportActivated(XRController controller)
     {
         InputHelpers.IsPressed(controller.inputDevice,teleportActivationButton,out bool isActivated,activationTreshold);
         return isActivated;

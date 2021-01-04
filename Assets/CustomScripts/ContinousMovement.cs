@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -11,17 +11,21 @@ public class ContinousMovement : MonoBehaviour
 {
     public XRNode inputSource;
     public XRNode inputJumpSource;
+    [SerializeField] private XRController sprintController;
     public float speed = 1;
     public float gravity = -9.81f;
     public LayerMask groundLayer;
     public float additionalHeight = 0.2f;
-    
+    [SerializeField] private InputHelpers.Button sprintActivationButton;
     [SerializeField] private bool checkForGroundOnJump = true;
     [SerializeField] private float jumpingForce;
+    [SerializeField] private float sprintSpeed = 1.5f;
     private float fallingSpeed;
     private Vector2 inputAxis;
     private XRRig rig;
     private bool buttonPressed = false;
+    private float activationThreshold = 0.1f;
+    
 
     private Vector3 moveDirection = Vector3.zero; 
 
@@ -49,7 +53,7 @@ public class ContinousMovement : MonoBehaviour
         Vector3 direction = headYaw * new Vector3(inputAxis.x, 0, inputAxis.y);
 
         characterController.Move(direction * (speed * Time.fixedDeltaTime));
-
+        
         //gravity
         bool isGrounded = CheckIfGrounded();
         if (isGrounded)
@@ -60,17 +64,21 @@ public class ContinousMovement : MonoBehaviour
         {
             fallingSpeed += gravity * Time.fixedDeltaTime;
         }
+        if (CheckIfSprintActivated(sprintController) && isGrounded)
+        {
+            characterController.Move(direction * (speed * sprintSpeed * Time.fixedDeltaTime));
+        }
 
         characterController.Move(Vector3.up * (fallingSpeed * Time.fixedDeltaTime));
     }
 
-    void CapsuleFollowHeadset()
+    private void CapsuleFollowHeadset()
     {
         characterController.height = rig.cameraInRigSpaceHeight + additionalHeight;
         Vector3 capsuleCenter = transform.InverseTransformPoint(rig.cameraGameObject.transform.position);
         characterController.center = new Vector3(capsuleCenter.x,characterController.height/2 + characterController.skinWidth,capsuleCenter.z);
     }
-    bool CheckIfGrounded()
+    private bool CheckIfGrounded()
     {
         Vector3 rayStart = transform.TransformPoint(characterController.center);
         float rayLength = characterController.center.y + 0.01f;
@@ -79,7 +87,7 @@ public class ContinousMovement : MonoBehaviour
         return hasHit;
     }
 
-    void UpdateJump(InputDevice inputSource)
+    private void UpdateJump(InputDevice inputSource)
     {
         if (checkForGroundOnJump && !CheckIfGrounded())
         {
@@ -102,5 +110,11 @@ public class ContinousMovement : MonoBehaviour
         {
             buttonPressed = false;
         }
+    }
+    public bool CheckIfSprintActivated(XRController controller)
+    {
+        InputHelpers.IsPressed(controller.inputDevice, sprintActivationButton, out bool isActivated,
+            activationThreshold);
+        return isActivated;
     }
 }

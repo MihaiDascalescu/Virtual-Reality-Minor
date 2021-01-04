@@ -34,6 +34,11 @@ namespace StateMachineScripts
 
         [SerializeField] private float timeBetweenAttacks;
         public static float TimeBetweenAttacks => Instance.timeBetweenAttacks;
+        [SerializeField] private float timeBetweenEnemiesSpawned;
+        public static float TimeBetweenEnemiesSpawned => Instance.timeBetweenEnemiesSpawned;
+        [SerializeField] private int maxEnemiesSpawned;
+        public static int MaxEnemiesSpawned => Instance.maxEnemiesSpawned;
+        
 
 
         public static GameSettings Instance;

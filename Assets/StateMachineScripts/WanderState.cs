@@ -37,7 +37,6 @@ namespace StateMachineScripts
 
        public override Type Tick()
         {
-            
             if (demon.animator.GetBool(IsHit))
             {
                 return null;
@@ -63,6 +62,7 @@ namespace StateMachineScripts
             }
             Patrol();
             return null;
+            
         }
         private void Patrol()
         {
