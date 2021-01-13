@@ -10,6 +10,7 @@ public class Climber : MonoBehaviour
     private CharacterController characterController;
     public static XRController climbingHand;
     private ContinousMovement continousMovement;
+    [SerializeField] private float ledgePush = 100.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -40,11 +41,5 @@ public class Climber : MonoBehaviour
         characterController.Move(transform.rotation * -velocity * Time.fixedDeltaTime);
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("FinalHandle"))
-        {
-            characterController.SimpleMove(Vector3.up);
-        }
-    }
+  
 }

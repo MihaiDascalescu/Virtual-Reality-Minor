@@ -8,54 +8,50 @@ using Random = UnityEngine.Random;
 
 public class ShotgunTwoBarrel : MonoBehaviour
 {
-   [Header("Prefab Refrences")]
-    public GameObject bulletPrefab;
-    public GameObject casingPrefab;
-    public GameObject muzzleFlashPrefab;
-
     [Header("Location Refrences")]
-    [SerializeField] private Animator gunAnimator;
     [SerializeField] private Transform barrelLocationOne;
-    [SerializeField] private Transform barrelLocationTwo;
     [SerializeField] private Transform casingExitLocationOne;
     [SerializeField] private Transform casingExitLocationTwo;
-    
+    [SerializeField] private Transform shotGunTransform;
 
-    [SerializeField] private float spread = 0.02f;
     [Header("Settings")]
+    [SerializeField] private Animator gunAnimator;
+    [SerializeField] private float spread = 0.02f;
+    [SerializeField] private LayerMask whatIsEnemy;
+    [SerializeField] private float range;
+    [SerializeField] private int damage;
+    [SerializeField] private int magazineSize;
+    [SerializeField] private float reloadTime;
+    [SerializeField] public int ammo;
+    
+    [Header("Effects")]
     [Tooltip("Specify time to destory the casing object")] [SerializeField] private float destroyTimer = 2f;
     [Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
-
-    [SerializeField] private Transform shotGunTransform;
-
+    public GameObject bulletPrefab;
+    public GameObject casingPrefab;
+    public GameObject muzzleFlashPrefab;
+    
+    [Header("Sounds")]
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip fireSound;
     [SerializeField] private AudioClip reloadSound;
     [SerializeField] private AudioClip fireNoAmmo;
     
-
+    private RaycastHit rayHit;
+    private bool reloading;
+    private float bulletsLeft;
+    private bool hasAmmo = false;
+    private GunCast gunCast;
     private bool barrelOne = true;
     private bool barrelTwo = true;
-    
-    private RaycastHit rayHit;
-    [SerializeField] private LayerMask whatIsEnemy;
-    [SerializeField] private float range;
-    [SerializeField] private int damage;
-    [SerializeField] private int magazineSize;
-    
-    private bool reloading;
-    [SerializeField]private float reloadTime;
-    private float bulletsLeft;
-    
-    [SerializeField] private string[] hittableTags = {"Enemy", "TargetPractice", "MovableTarget"};
-    
     void Start()
     {
         if (barrelLocationOne == null)
             barrelLocationOne = transform;
 
         gunAnimator = GetComponent<Animator>();
+        gunCast = GetComponent<GunCast>();
     }
 
     private void Awake()
@@ -65,9 +61,10 @@ public class ShotgunTwoBarrel : MonoBehaviour
 
     public void PullTheTrigger()
     {
-        if(bulletsLeft > 0 && !reloading)
+        if(bulletsLeft > 0 && !reloading && hasAmmo)
         {
             gunAnimator.SetTrigger("Fire");
+            ammo--;
         }
         else
         {
@@ -81,7 +78,14 @@ public class ShotgunTwoBarrel : MonoBehaviour
         {
             gunAnimator.SetBool("Reload 0",true);
             StartCoroutine(Reload());
-            
+        }
+        if (ammo > 0)
+        {
+            hasAmmo = true;
+        }
+        else
+        {
+            hasAmmo = false;
         }
     }
 
@@ -110,28 +114,12 @@ public class ShotgunTwoBarrel : MonoBehaviour
         float y = Random.Range(-spread, spread);
 
         //Calculate Direction with Spread
-        Vector3 direction = barrelLocationOne.transform.forward + new Vector3(x, y, 0);
+        var barrelLocationTransform = barrelLocationOne.transform;
+        Vector3 direction = barrelLocationTransform.forward + new Vector3(x, y, 0);
 
         //RayCast
-        if (Physics.Raycast(barrelLocationOne.transform.position, direction, out rayHit, range, whatIsEnemy))
-        {
-            foreach (string hittableTag in hittableTags)
-            {
-                if (!rayHit.collider.CompareTag(hittableTag))
-                {
-                    continue;
-                }
-
-                Health health = rayHit.collider.GetComponent<Health>();
-
-                if (health == null)
-                {
-                    continue;
-                }
-
-                health.CurrentHealth -= damage;
-            }
-        }
+        
+        gunCast.CheckForHit(barrelLocationTransform.position,direction,rayHit,range,whatIsEnemy,damage);
         bulletsLeft--;
     }
 
@@ -175,4 +163,6 @@ public class ShotgunTwoBarrel : MonoBehaviour
         //Destroy casing after X seconds
         Destroy(tempCasing, destroyTimer);
     }
+
+    
 }

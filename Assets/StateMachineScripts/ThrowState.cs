@@ -30,7 +30,7 @@ namespace StateMachineScripts
 
             attackReadyTimer -= Time.deltaTime;
             var distance = Vector3.Distance(transform.position, demon.Target.transform.position);
-            if (distance > GameSettings.RangedAttackRange)
+            if (distance > GameSettings.RangedAttackRange && demon.Target.transform.position.y < 2)
             {
                 return typeof(ChaseState);
             }

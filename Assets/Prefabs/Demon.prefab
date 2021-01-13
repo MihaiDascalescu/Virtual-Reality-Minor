@@ -1704,6 +1704,7 @@ GameObject:
   - component: {fileID: 4167803435314728299}
   - component: {fileID: 4167803435314728295}
   - component: {fileID: 4167803435314728293}
+  - component: {fileID: -5183608908651319222}
   m_Layer: 13
   m_Name: Demon
   m_TagString: Enemy
@@ -1950,6 +1951,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 0}
+--- !u!114 &-5183608908651319222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5401766702022726758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c1ec8e27baa33409ef0d604e433898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  demonMaterials:
+  - {fileID: 2100000, guid: 9a9f578eff5b6494e8a4afc433d5e6c4, type: 2}
+  - {fileID: 2100000, guid: 960b3923189dbac4dab6fde4a728a15f, type: 2}
+  - {fileID: 2100000, guid: d51801c7204825749b5e998fb822b371, type: 2}
+  - {fileID: 2100000, guid: 396a3449c7736b84cb02df46a09e5ce7, type: 2}
+  - {fileID: 2100000, guid: 6f89782b6e41929438d213720108b608, type: 2}
 --- !u!1 &5460061931283671359
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1383,14 +1383,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputSource: 4
   inputJumpSource: 0
+  sprintController: {fileID: 1112971989}
   speed: 2
   gravity: -9.81
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
   additionalHeight: 0.2
+  sprintActivationButton: 11
   checkForGroundOnJump: 1
   jumpingForce: 0
+  sprintSpeed: 1.5
 --- !u!114 &179222539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1422,6 +1425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad385a2d32e82c749985830f2b5f0d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ledgePush: 5
 --- !u!114 &179222541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1434,7 +1438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa76ca9bd2e6bd419b185ebed648c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  processVolume: {fileID: 0}
+  processVolume: {fileID: 197610207}
   vignetteIntensity: 0.1
   screenChangeTimer: 0.5
 --- !u!114 &179222542
@@ -2966,7 +2970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &332660121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4275,6 +4279,8 @@ MonoBehaviour:
   projectileOffset: {x: 0, y: 0, z: 0}
   demonProjectilePrefab: {fileID: 0}
   timeBetweenAttacks: 1
+  timeBetweenEnemiesSpawned: 0
+  maxEnemiesSpawned: 0
 --- !u!4 &467045325
 Transform:
   m_ObjectHideFlags: 0
@@ -37318,6 +37324,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2557ef0dd3650734992f82d5f7212286,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -819139046232449951, guid: 2557ef0dd3650734992f82d5f7212286,
         type: 3}
       propertyPath: m_Layer
@@ -44512,6 +44523,8 @@ MonoBehaviour:
   health: {fileID: 0}
   player: {fileID: 0}
   wasAttacked: 0
+  boss: {fileID: 0}
+  isInstantiated: 0
 --- !u!114 &1031343336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50827,7 +50840,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794178608}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.0023495185
@@ -52497,7 +52510,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005925158}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.0023495185
@@ -56137,6 +56150,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Beretta
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770039414187119345, guid: 307fa72005e066b4ab87bb7c7f80d425,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3371833417812844770, guid: 307fa72005e066b4ab87bb7c7f80d425,
         type: 3}

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class BoxDestroy : MonoBehaviour
 {
@@ -20,11 +21,13 @@ public class BoxDestroy : MonoBehaviour
 
     [SerializeField] private string rightHand,leftHand;
 
-    [SerializeField] private GameObject magazinePrefab;
+    [FormerlySerializedAs("magazinePrefab")] [SerializeField] private GameObject pistolMagazinePrefab;
+    [SerializeField] private GameObject shotgunMagazinePrefab;
     [SerializeField] private GameObject medKitPrefab;
 
-    [SerializeField] private bool dropMagazine;
+    [FormerlySerializedAs("dropMagazine")] [SerializeField] private bool dropPistolMagazine;
     [SerializeField] private bool dropHealthKit;
+    [SerializeField] private bool dropShotgunMagazine;
     
     private AudioSource source;
 
@@ -40,14 +43,19 @@ public class BoxDestroy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name != rightHand && other.gameObject.name != leftHand) return;
-        if(dropMagazine)
+        if(dropPistolMagazine)
         {
-            Instantiate(magazinePrefab, transform.position, Quaternion.identity);
+            Instantiate(pistolMagazinePrefab, transform.position, Quaternion.identity);
         }
 
         if (dropHealthKit)
         {
             Instantiate(medKitPrefab, transform.position, Quaternion.identity);
+        }
+        
+        if (dropShotgunMagazine)
+        {
+            Instantiate(shotgunMagazinePrefab, transform.position, Quaternion.identity);
         }
         playSound?.Invoke();
         Explode();

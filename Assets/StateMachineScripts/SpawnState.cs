@@ -34,14 +34,21 @@ namespace StateMachineScripts
             if (IsSpawning())
             {
                 SpawnEnemies();
+                boss.smokeEffect.SetActive(true);
             }
             else
             {
-                return null;
+                boss.smokeEffect.SetActive(false);
+                return typeof(FireProjectilesState);
             }
             timeBetweenSpawns-= Time.deltaTime;
             boss.transform.LookAt(boss.player.transform);
+            if (boss.demonAmount == maxEnemiesSpawned)
+            {
+                
+            }
             return null;
+            
         }
 
         private void SpawnEnemies()

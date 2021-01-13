@@ -12,6 +12,9 @@ TagManager:
   - WalkPoint
   - TargetPractice
   - MovableTarget
+  - Shotgun
+  - Pistol
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

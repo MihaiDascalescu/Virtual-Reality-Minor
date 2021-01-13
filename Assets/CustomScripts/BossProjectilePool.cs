@@ -11,16 +11,11 @@ public class BossProjectilePool : MonoBehaviour
 
     private bool notEnoughProjectilesInPool = true;
 
-    private List<GameObject> projectiles;
+    private List<GameObject> projectiles = new List<GameObject>();
 
     private void Awake()
     {
         bossProjectilePool = this;
-    }
-
-    private void Start()
-    {
-        projectiles = new List<GameObject>();
     }
 
     public GameObject GetProjectile()

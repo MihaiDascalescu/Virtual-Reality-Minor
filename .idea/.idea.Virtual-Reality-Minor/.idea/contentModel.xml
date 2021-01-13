@@ -25,18 +25,23 @@
           <e p="Climber.cs" t="Include" />
           <e p="ClimbInteractable.cs" t="Include" />
           <e p="ContinousMovement.cs" t="Include" />
+          <e p="DemonRandomAspect.cs" t="Include" />
           <e p="DemonSpawnerTargetPractice.cs" t="Include" />
+          <e p="DPSAbility.cs" t="Include" />
           <e p="FireProjectile.cs" t="Include" />
           <e p="FollowToTheSide.cs" t="Include" />
           <e p="Gun.cs" t="Include" />
+          <e p="GunCast.cs" t="Include" />
           <e p="GunSystem.cs" t="Include" />
           <e p="HandPresence.cs" t="Include" />
+          <e p="LavaPool.cs" t="Include" />
           <e p="LocomotionController.cs" t="Include" />
           <e p="Magazine.cs" t="Include" />
           <e p="Medkit.cs" t="Include" />
           <e p="MovementRecognizer.cs" t="Include" />
           <e p="OnTargetReached.cs" t="Include" />
           <e p="Patrol.cs" t="Include" />
+          <e p="PlayAnimation.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PressableButton.cs" t="Include" />
           <e p="Projectile.cs" t="Include" />
@@ -44,7 +49,9 @@
           <e p="ShotgunTwoBarrel.cs" t="Include" />
           <e p="TwoHandedRifle.cs" t="Include" />
           <e p="TwoHandGrabInteractable.cs" t="Include" />
+          <e p="XRInteractionManagerExposed.cs" t="Include" />
           <e p="XROffsetGrabInteractable.cs" t="Include" />
+          <e p="XRSocketInteractorAttachTag.cs" t="Include" />
           <e p="XRSocketInteractorTag.cs" t="Include" />
         </e>
         <e p="EnemyAnimations.cs" t="Include" />
@@ -179,12 +186,14 @@
             </e>
           </e>
         </e>
+        <e p="PistolAmmo.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="InstantiateTriangles.cs" t="Include" />
           <e p="LightSaber.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="XRInput.cs" t="Include" />
         </e>
+        <e p="ShotgunAmmo.cs" t="Include" />
         <e p="Sound" t="Include">
           <e p="PlayMagazineSound.cs" t="Include" />
           <e p="SoundPlayer.cs" t="Include" />
@@ -195,8 +204,10 @@
           <e p="BaseState.cs" t="Include" />
           <e p="ChaseState.cs" t="Include" />
           <e p="Demon.cs" t="Include" />
+          <e p="FireProjectilesState.cs" t="Include" />
           <e p="GameSettings.cs" t="Include" />
           <e p="IdleState.cs" t="Include" />
+          <e p="LavaPoolState.cs" t="Include" />
           <e p="MovableTarget.cs" t="Include" />
           <e p="PracticeTargetDemon.cs" t="Include" />
           <e p="SpawnState.cs" t="Include" />

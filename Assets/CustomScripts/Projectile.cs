@@ -20,6 +20,11 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
+
+        if (other.gameObject.layer == 16)
+        {
+            Destroy(gameObject);
+        }
         
         health.CurrentHealth -= damage;
     }

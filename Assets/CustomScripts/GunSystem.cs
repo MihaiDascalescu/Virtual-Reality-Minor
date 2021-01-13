@@ -12,58 +12,56 @@ using UnityEngine.UI;
 
 public class GunSystem : MonoBehaviour
 {
-    //Gun stats
+    [Header("Location References")]
+    [SerializeField]private Transform barrelLocation;
+    [SerializeField]private Transform casingExitLocation;
+    
+    [Header("Settings")]
     [SerializeField]private int damage;
     [SerializeField]private float spread, range, reloadTime, timeBetweenShots;
     [SerializeField]private int magazineSize, bulletsPerTap;
-    
-    private int bulletsLeft, bulletsShot;
-
-    //bools 
-    public bool Shooting { get; set; }
-    private bool readyToShoot, reloading;
-    
+    [SerializeField]public int ammo;
     [SerializeField]private Animator animator;
-    [SerializeField]private Transform barrelLocation;
+    [SerializeField]private LayerMask whatIsEnemy;
+    public bool Shooting { get; set; }
     
+    [Header("Effects")]
     [SerializeField]private GameObject bulletPrefab; 
     [SerializeField]private GameObject casingPrefab;
     [SerializeField]private GameObject muzzleFlashPrefab;
-    //Reference
-    public Transform fpsCam;
-    
-    private RaycastHit rayHit;
-    //Enemy Detection
-    [SerializeField]private LayerMask whatIsEnemy;
-    [SerializeField]private Transform gunTransform;
-    //Effects
-    [SerializeField]private Transform casingExitLocation;
-    //Effects
     [Tooltip("Specify time to destory the casing object")] [SerializeField] private float destroyTimer = 2f;
     [Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
-    //UI
+    
+    [Header("User Interface")]
     public Text showBullets;
     public GameObject panel;
-    //Sound
+    public bool ActivatePanel { get; set; }
+    [Header("Sound")]
     public AudioSource source;
     public AudioClip fireSound;
     public AudioClip reloadSound;
-
-    
+     
+    private int bulletsLeft, bulletsShot;
+    private bool hasAmmo;
+    private bool readyToShoot, reloading;
+    private GunCast gunCast;
+    private RaycastHit rayHit;
     public bool OnReload { get; set; } = false;
-    public bool ActivatePanel { get; set; }
-
-    [SerializeField] private string[] hittableTags = {"Enemy", "TargetPractice", "MovableTarget"};
     
+    private void Start()
+    {
+        gunCast = GetComponent<GunCast>();
+    }
+
     private void Awake()
     {
-        bulletsLeft = magazineSize;
+        bulletsLeft = ammo;
         readyToShoot = true;
     }
     private void Update()
     {
-        showBullets.text = bulletsLeft + "/" + magazineSize;
+        showBullets.text = bulletsLeft + "/" + ammo;
         if (ActivatePanel)
         {
             panel.SetActive(true);
@@ -72,13 +70,22 @@ public class GunSystem : MonoBehaviour
         {
             panel.SetActive(false);
         }
-        if (Vector3.Angle(gunTransform.up, Vector3.up) > 100 && bulletsLeft < magazineSize)
+        if (Vector3.Angle(barrelLocation.up, Vector3.up) > 100 && bulletsLeft < magazineSize && hasAmmo)
         {
             StartCoroutine(Reload());
             source.PlayOneShot(reloadSound);
         }
 
-        if (!readyToShoot || !Shooting || reloading || bulletsLeft <= 0) return;
+        if (ammo > 0)
+        {
+            hasAmmo = true;
+        }
+        else
+        {
+            hasAmmo = false;
+        }
+        
+        if (!readyToShoot || !Shooting || reloading || bulletsLeft <= 0 ||!hasAmmo) return;
         bulletsShot = bulletsPerTap;
         PullTheTrigger();
 
@@ -112,30 +119,14 @@ public class GunSystem : MonoBehaviour
         float y = Random.Range(-spread, spread);
 
         //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+        var barrelLocationTransform = barrelLocation.transform;
+        Vector3 direction = barrelLocationTransform.forward + new Vector3(x, y, 0);
 
         //RayCast
-        if (Physics.Raycast(barrelLocation.transform.position, direction, out rayHit, range, whatIsEnemy))
-        {
-            foreach (string hittableTag in hittableTags)
-            {
-                if (!rayHit.collider.CompareTag(hittableTag))
-                {
-                    continue;
-                }
-
-                Health health = rayHit.collider.GetComponent<Health>();
-
-                if (health == null)
-                {
-                    continue;
-                }
-
-                health.CurrentHealth -= damage;
-            }
-        }
+        gunCast.CheckForHit(barrelLocationTransform.position,direction,rayHit,range,whatIsEnemy,damage);
         bulletsLeft--;
         bulletsShot--;
+        ammo--;
 
         StartCoroutine(ResetShot());
     }
@@ -161,7 +152,15 @@ public class GunSystem : MonoBehaviour
     }
     private void ReloadFinished()
     {
-        bulletsLeft = magazineSize;
+        if (ammo >= magazineSize)
+        {
+            bulletsLeft = magazineSize;
+        }
+        else
+        {
+            bulletsLeft = ammo;
+        }
+
         reloading = false;
     }
     void CasingRelease()

@@ -54,6 +54,11 @@ namespace StateMachineScripts
                 demon.animator.SetBool(IsLookingForEnemies,false);
                 return typeof(ThrowState);
             }
+
+            if (demon.Target.transform.position.y > 2)
+            {
+                return typeof(ThrowState);
+            }
             demon.agent.isStopped = false;
             return typeof(ChaseState);
 

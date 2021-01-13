@@ -2368,7 +2368,9 @@ MonoBehaviour:
   leftHand: LeftHand
   magazinePrefab: {fileID: 3216363600942735861, guid: cbeeec9763d988548ad077502f1fc607,
     type: 3}
+  medKitPrefab: {fileID: 0}
   dropMagazine: 0
+  dropHealthKit: 0
   playSound:
     m_PersistentCalls:
       m_Calls:
@@ -3494,7 +3496,6 @@ MonoBehaviour:
   hurtSound: {fileID: 0}
   bulletImpactSound: {fileID: 0}
   maxHealth: 10
-  currentHealth: 0
 --- !u!114 &497616741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3507,6 +3508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa76ca9bd2e6bd419b185ebed648c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  processVolume: {fileID: 0}
+  vignetteIntensity: 0.1
+  screenChangeTimer: 0.5
 --- !u!114 &497616742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3570,14 +3574,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputSource: 4
   inputJumpSource: 5
+  sprintController: {fileID: 583638660}
   speed: 2
   gravity: -9.81
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
   additionalHeight: 0.2
+  sprintActivationButton: 11
   checkForGroundOnJump: 1
   jumpingForce: 50
+  sprintSpeed: 1.5
 --- !u!114 &497616746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5593,7 +5600,9 @@ MonoBehaviour:
   leftHand: LeftHand
   magazinePrefab: {fileID: 3216363600942735861, guid: cbeeec9763d988548ad077502f1fc607,
     type: 3}
+  medKitPrefab: {fileID: 0}
   dropMagazine: 0
+  dropHealthKit: 0
   playSound:
     m_PersistentCalls:
       m_Calls:
@@ -29298,7 +29307,9 @@ MonoBehaviour:
   leftHand: LeftHand
   magazinePrefab: {fileID: 3216363600942735861, guid: cbeeec9763d988548ad077502f1fc607,
     type: 3}
+  medKitPrefab: {fileID: 0}
   dropMagazine: 0
+  dropHealthKit: 0
   playSound:
     m_PersistentCalls:
       m_Calls:

@@ -4770,7 +4770,7 @@ GameObject:
   - component: {fileID: 7013554840405516872}
   m_Layer: 21
   m_Name: BossProjectile
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4816,7 +4816,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eddaadb49d5d79e4ea54608d90d348a9, type: 2}
+  - {fileID: 2100000, guid: d1170c771a229e244b56500373c24df3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4878,3 +4878,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e1e12bb89708f4daea12426da7362f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3

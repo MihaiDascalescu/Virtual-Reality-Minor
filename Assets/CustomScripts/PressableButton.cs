@@ -90,6 +90,7 @@ public class PressableButton : XRBaseInteractable
         if (isInPosition && isInPosition != previousPress)
         {
             onPress?.Invoke();
+            print("pressed");
         }
 
         previousPress = isInPosition;
@@ -98,6 +99,6 @@ public class PressableButton : XRBaseInteractable
     private bool InPosition()
     {
         float inRange = Mathf.Clamp(transform.localPosition.y, yMin, yMin + 0.01f);
-        return transform.localPosition.y == inRange;
+        return transform.localPosition.y >= inRange;
     }
 }

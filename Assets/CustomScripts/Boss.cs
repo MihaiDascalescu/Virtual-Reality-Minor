@@ -24,15 +24,20 @@ public class Boss : MonoBehaviour
     public GameObject demonToSpawn;
 
     public int demonAmount;
-    
-    
 
-    [SerializeField] private Projectile projectile;
+    public FireProjectile fireProjectile;
+
+    public int spawnStateStartThreshold = 2;
+
+    public GameObject smokeEffect;
+
+    public GameObject lavaPool;
     private void Awake()
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         health = GetComponent<Health>();
+        fireProjectile = GetComponent<FireProjectile>();
     }
 
     private void Start()
@@ -45,7 +50,8 @@ public class Boss : MonoBehaviour
         var states = new Dictionary<Type, BaseState>()
         {
             //{typeof(IdleState),new IdleState(this)},
-            {typeof(SpawnState),new SpawnState(this)}
+            {typeof(SpawnState),new SpawnState(this)},
+            {typeof(FireProjectilesState), new FireProjectilesState(this)}
         };
         GetComponent<StateMachine>().Init(typeof(SpawnState), states);
     }
@@ -79,6 +85,23 @@ public class Boss : MonoBehaviour
     public void SpawnEnemies(int spawnerIndex)
     {
         Instantiate(demonToSpawn,demonSpawners[spawnerIndex]);
+    }
+
+    public void FireInPattern()
+    {
+        fireProjectile.FireInPattern();
+    }
+
+    public void EnableLavaPool()
+    {
+        StartCoroutine(StartLavaPool());
+    }
+
+    private IEnumerator StartLavaPool()
+    {
+        lavaPool.SetActive(true);
+        yield return new WaitForSeconds(10.0f);
+        lavaPool.SetActive(false);
     }
     
 }

@@ -8,6 +8,7 @@ public class BossProjectile : MonoBehaviour
     private Vector3 moveDirection;
 
     private float moveSpeed;
+    [SerializeField] private int damage; 
 
     void Start()
     {
@@ -39,5 +40,26 @@ public class BossProjectile : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
         Destroy();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Player>() == null)
+        {
+            return;
+        }
+
+        Health health = other.GetComponent<Health>();
+        if (health == null)
+        {
+            return;
+        }
+
+        if (other.gameObject.layer == 16)
+        {
+            Destroy(gameObject);
+        }
+        
+        health.CurrentHealth -= damage;
     }
 }
