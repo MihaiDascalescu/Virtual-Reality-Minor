@@ -51,7 +51,6 @@ namespace StateMachineScripts
             {
                 if (distance <= GameSettings.AttackRange)
                 {
-                    demon.agent.isStopped = true;
                     demon.animator.SetBool(IsInAttackRange, true);
                     demon.animator.SetBool(IsLookingForEnemies, false);
                     return typeof(AttackState);
@@ -59,7 +58,6 @@ namespace StateMachineScripts
 
                 if (distance <= GameSettings.RangedAttackRange)
                 {
-                    demon.agent.isStopped = true;
                     demon.animator.SetBool(IsInRangedRange, true);
                     demon.animator.SetBool(IsLookingForEnemies, false);
                     return typeof(ThrowState);
@@ -74,9 +72,17 @@ namespace StateMachineScripts
                 }
             }
 
-            demon.agent.isStopped = false;
-            
             return typeof(ChaseState);
+        }
+
+        public override void OnExitState()
+        {
+            demon.agent.isStopped = true;
+        }
+
+        public override void OnEnterState()
+        {
+            demon.agent.isStopped = false;
         }
     }
 }

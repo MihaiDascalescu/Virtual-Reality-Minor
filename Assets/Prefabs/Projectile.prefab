@@ -128,6 +128,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   damage: 2
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 66048
 --- !u!1 &1767599783762043656
 GameObject:
   m_ObjectHideFlags: 0
