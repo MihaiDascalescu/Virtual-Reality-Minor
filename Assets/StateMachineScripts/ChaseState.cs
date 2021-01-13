@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using StateMachineScripts;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace StateMachineScripts
 {
@@ -13,7 +14,6 @@ namespace StateMachineScripts
         private static readonly int IsHit = Animator.StringToHash("isHit");
         private Demon demon;
         private Transform transform;
-        private float distance;
         private static readonly int IsInRangedRange = Animator.StringToHash("IsInRangedRange");
 
 
@@ -22,7 +22,7 @@ namespace StateMachineScripts
             this.demon = demon;
             this.transform = demon.transform;
         }
-
+        NavMeshPath path = new NavMeshPath();
         public override Type Tick()
         {
             if (demon.animator.GetBool(IsHit))
@@ -33,36 +33,50 @@ namespace StateMachineScripts
             {
                 return typeof(WanderState);
             }
+
+            Vector3 toTarget = demon.Target.transform.position - transform.position;
+            float distance = toTarget.magnitude;
             
-            transform.LookAt(demon.Target);
-            var position = demon.Target.transform.position;
-            demon.agent.SetDestination(position);
-            distance = Vector3.Distance(demon.transform.position, position);
-            
-            if (distance <= GameSettings.AttackRange)
+            toTarget.y = 0.0f;
+            Quaternion rotationTowardsTarget = Quaternion.LookRotation(toTarget);
+            transform.rotation = rotationTowardsTarget;
+
+            if (demon.agent.CalculatePath(demon.Target.transform.position, path))
             {
-                demon.agent.isStopped = true;
-                demon.animator.SetBool(IsInAttackRange,true);
-                demon.animator.SetBool(IsLookingForEnemies,false);
-                return typeof(AttackState);
+                demon.agent.SetPath(path);
             }
 
-            if (distance <= GameSettings.RangedAttackRange)
+            // Agent can reach player
+            if (path.status != NavMeshPathStatus.PathPartial)
             {
-                demon.agent.isStopped = true;
-                demon.animator.SetBool(IsInRangedRange,true);
-                demon.animator.SetBool(IsLookingForEnemies,false);
-                return typeof(ThrowState);
+                if (distance <= GameSettings.AttackRange)
+                {
+                    demon.agent.isStopped = true;
+                    demon.animator.SetBool(IsInAttackRange, true);
+                    demon.animator.SetBool(IsLookingForEnemies, false);
+                    return typeof(AttackState);
+                }
+
+                if (distance <= GameSettings.RangedAttackRange)
+                {
+                    demon.agent.isStopped = true;
+                    demon.animator.SetBool(IsInRangedRange, true);
+                    demon.animator.SetBool(IsLookingForEnemies, false);
+                    return typeof(ThrowState);
+                }
+            }
+            else
+            {
+                if (demon.agent.remainingDistance <= 1.0f)
+                {
+                    // TODO!~
+                    //return typeof(IdleState);
+                }
             }
 
-            if (demon.Target.transform.position.y > 2)
-            {
-                return typeof(ThrowState);
-            }
             demon.agent.isStopped = false;
+            
             return typeof(ChaseState);
-
-            return null;
         }
     }
 }
